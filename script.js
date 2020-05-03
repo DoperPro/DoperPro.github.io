@@ -71,10 +71,10 @@ function добавить_строчку() {                            //доб
         <option value="11">11</option>
         <option value="12">12</option>
     </select>
-    <input type="text" name="revenue_code_${счётчик}" id="revenue_code_${счётчик}" form="main_form2" maxlength="4" pattern="[0-9][0-9][0-9][0-9]" class="col-2">
-    <input type="text" name="amount_of_income_${счётчик}" id="amount_of_income_${счётчик}" form="main_form2" class="col-3">
-    <input type="text" name="deduction_code_${счётчик}" id="deduction_code_${счётчик}" form="main_form2" maxlength="3" pattern="[0-9][0-9][0-9][0-9]" class="col-2">
-    <input type="text" name="the_amount_of_the_deduction_${счётчик}" id="the_amount_of_the_deduction_${счётчик}"form="main_form2" class="col-3">         
+    <input type="number" name="revenue_code_${счётчик}" id="revenue_code_${счётчик}" form="main_form2" maxlength="4" pattern="[0-9][0-9][0-9][0-9]" class="col-2">
+    <input type="number" name="amount_of_income_${счётчик}" id="amount_of_income_${счётчик}" form="main_form2" class="col-3">
+    <input type="number" name="deduction_code_${счётчик}" id="deduction_code_${счётчик}" form="main_form2" maxlength="3" pattern="[0-9][0-9][0-9][0-9]" class="col-2">
+    <input type="number" name="the_amount_of_the_deduction_${счётчик}" id="the_amount_of_the_deduction_${счётчик}"form="main_form2" class="col-3">         
 `;
     tabl.append(tmp);
 
@@ -88,9 +88,9 @@ function добавить_строчку1() {                            //до�
     let tmp = document.createElement('div');
     tmp.className = 'row justify-content-center';
     tmp.innerHTML = `
-    <input type="text" name="deduction_code_${счётчик1}" id="deduction_code_${счётчик1}" form="main_form2" maxlength="4"
+    <input type="number" name="deduction_code_${счётчик1}" id="deduction_code_${счётчик1}" form="main_form2" maxlength="4"
     pattern="[0-9][0-9][0-9][0-9]" class="col-3">
-<input type="text" name="the_amount_of_the_deduction_two_${счётчик1}" id="the_amount_of_the_deduction_two_${счётчик1}"
+<input type="number" name="the_amount_of_the_deduction_two_${счётчик1}" id="the_amount_of_the_deduction_two_${счётчик1}"
     form="main_form2" class="col-4">
     `;
     tabl1.append(tmp);
