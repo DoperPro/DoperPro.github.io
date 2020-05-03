@@ -152,6 +152,7 @@ tr:nth-child(even) {
   font-size: 18px;
   border-radius: 5px;
   background: #234361;
+  padding: 0;
 }
 .search button[type=button]{
 	margin: 15px;
@@ -305,7 +306,7 @@ tr:nth-child(even) {
   width: 100%;
   }
   .search{
-  width: 95%;
+  width: 100%;
   display: blocks;
   flex-direction: column;
   text-align: center;
