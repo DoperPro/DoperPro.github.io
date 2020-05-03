@@ -88,7 +88,9 @@ tr:nth-child(even) {
 .ENN{
 	margin: 0 0 0 37px;
 }
-
+#form{
+  margin: 0 0 0 15px;
+}
 #location{
 	width: 460px;
 }
