@@ -88,7 +88,9 @@ tr:nth-child(even) {
 .ENN{
 	margin: 0 0 0 37px;
 }
-
+#form{
+  margin: 0 0 0 15px;
+}
 #location{
 	width: 460px;
 }
@@ -138,7 +140,18 @@ tr:nth-child(even) {
   margin-left: 5px; 
 }
 #button2{
-  margin: 0 0 0 770px;
+  margin: 0 0 0 800px;
+}
+.search button[type=submit]{
+  margin: 15px;
+  margin-top: 30px;
+  width: 130px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  background: #234361;
 }
 .search button[type=button]{
 	margin: 15px;
