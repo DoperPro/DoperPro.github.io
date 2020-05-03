@@ -1,0 +1,297 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+form{
+  border-radius: 5px;
+  font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+	margin: 0 auto;
+	max-width: 1250px;
+	width: 100%;
+	margin-top: 30px;
+	line-height: 2.0;
+
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-content: center;
+}
+li {
+    list-style-type: none;
+}
+input {
+  border-radius: 5px;
+  font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #c6c7cc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+  color: #636466;
+  padding: 6px;
+  margin-top: 15px;
+}
+select{
+  border-radius: 5px;
+  font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #c6c7cc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+  color: #636466;
+  padding: 6px;
+  margin-top: 15px;
+}
+span{
+	margin-left: 15px; 
+	margin-right: 5px;
+}
+table {
+  font: 23px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  color: #000;
+}
+td {
+  padding: 5px;
+  border-top: 2px solid #234361;
+  border-bottom: 2px solid #234361;
+  border-right: 2px solid #234361;
+  border-left: 2px solid #234361;
+}
+td:nth-child(odd){
+  width: 1000px;
+}
+td:nth-child(even){
+  text-align: center;
+  width: 200px;
+}
+tr:nth-child(odd) {
+  background: #fff;
+}
+tr:nth-child(even) {
+  background: #fff;
+}
+.taxpayer{
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.income{
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.payment{
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+.ENN{
+	margin: 0 0 0 37px;
+}
+
+#location{
+	width: 460px;
+}
+.section2{
+	margin-top: 40px;
+}
+.series_number{
+	margin: 0 0 0 180px;
+}
+#issued_by{
+	width: 955px;
+}
+.section3{
+	margin-top: 40px;
+}
+.tax{
+  margin: 0 0 0 -40px;
+}
+#tax{
+  width: 35px;
+}
+.ENN_2{
+  margin: 0 0 0 130px;
+}
+#source_of_payment{
+  width: 850px;
+}
+.rate_of_return{
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tax_deductions{
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.total_revenue{
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tabl{
+  text-align: center;
+}
+.tabl_1{
+  text-align: center;
+}
+.button1{
+  margin-right: 5px; 
+}
+.button2{
+  margin-left: 5px; 
+}
+#button2{
+  margin: 0 0 0 770px;
+}
+.search button[type=button]{
+	margin: 15px;
+	margin-top: 30px;
+	width: 130px;
+	height: 40px;
+	border: none;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 5px;
+	background: #234361;
+}
+.button-back{
+  margin: 0 0 0 15px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #234361;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+
+  display: inline-block;
+
+  border-width: 2px;
+  border-color: #234361;
+  border-style: solid;
+  border-radius: 50px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  margin-bottom: 13px;
+
+  transition: 0.2s ease-out;
+}
+.button-back:hover{
+  color: #fff;
+  background-color: #234361;
+}
+
+@media screen and (max-width: 765px){ 
+  .taxpayer{
+    text-align: center;
+  }
+  .ENN{
+  width: 95%; 
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  margin-bottom: 30px;
+  }
+  .surname{
+  width: 95%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  }
+  .data_location{
+  width: 95%; 
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  }
+  .series_number{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  }
+  #location{
+  width: 100%;
+  }
+  .issued_by{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  }
+  #issued_by{
+  width: 100%;
+  }
+  .id_doc{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  }
+  .taxpayer1{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  margin-bottom: 30px;
+  }
+  .phone{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  }
+  .ENN_2{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  margin-left: 15px;
+  }
+  .source_of_payment{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin-left: 15px;
+  }
+  #source_of_payment{
+    width: 100%;
+  }
+  .search{
+  width: 95%;
+  display: blocks;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  }
+}
