@@ -149,9 +149,10 @@ document.documentElement.addEventListener('keyup', fill_preview_table); //три
     function onClick() {
         clicks += 1;
         document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
-        fill_obj_2ndfl();
-        obj_fill.push(JSON.stringify(obj_2ndfl));
-        clear_obj_2ndfl();
+
+        fill_obj_2ndfl();                                       //заполнить obj
+        obj_fill.push(JSON.stringify(obj_2ndfl));               //записать как JSON 
+        clear_obj_2ndfl();                                      //очистить obj
         let tmp = счётчик;
         for (let i = 1;i < tmp;i++){
             удалить_строчку();
@@ -161,10 +162,16 @@ document.documentElement.addEventListener('keyup', fill_preview_table); //три
             удалить_строчку1();
         }
         
-        console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
+        // console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
         obj_non_json.push(JSON.parse(obj_fill[obj_fill.length-1])); // ◄ ДЛЯ ОТЛАДКИ
-        console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
-
+        // console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
+        
+        
+        
+        let all_input = document.querySelectorAll('input:not([type="button"])');
+        for(let i = 0; i < all_input.length; i++){
+            all_input[i].value = "";
+        }
     };
 
     $(window).scroll(function() {
