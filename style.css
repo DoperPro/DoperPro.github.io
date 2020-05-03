@@ -21,9 +21,6 @@ form{
 li {
     list-style-type: none;
 }
-ul{
-  padding: 0;
-}
 input {
   border-radius: 5px;
   font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -203,7 +200,10 @@ tr:nth-child(even) {
   span{
   margin-left: auto; 
   margin-right: auto;
-}
+  }
+  ul{
+  padding: 0;
+  }
   .ENN{
   width: 95%; 
   display: flex;
