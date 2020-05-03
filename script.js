@@ -77,7 +77,11 @@ function добавить_строчку() {                            //доб
     счётчик = счётчик + 1;
 }
 
-function добавить_строчку1() {                            //добавляет строчку с вычитами 
+function добавить_строчку1() {                            //добавляет строчку с вычитами
+    if (счётчик1 == 1) {
+        dell_b_2.removeAttribute("disabled");
+    }
+    счётчик1 = счётчик1 + 1;
     let tmp = document.createElement('div');
     tmp.className = 'row justify-content-center';
     tmp.innerHTML = `
@@ -90,42 +94,32 @@ function добавить_строчку1() {                            //до�
 }
 
 
-function удалить_строчку() {                    //для первой таблици
+function удалить_строчку() {                        //для первой таблици
     tabl.lastChild.remove();
+    if (счётчик == 2) {
+        dell_b.setAttribute("disabled", "disabled");
+    }
     счётчик = счётчик - 1;
 }
-function удалить_строчку1() {                    //для второй таблици
+function удалить_строчку1() {                       //для второй таблици
     tabl1.lastChild.remove();
+    if (счётчик1 == 2) {
+        dell_b_2.setAttribute("disabled", "disabled");
+    }
     счётчик1 = счётчик1 - 1;
 }
 
 
-add_b.onclick = добавить_строчку;                 //при нажатии кнопки добавить
+add_b.onclick = добавить_строчку;                   //при нажатии кнопки добавить (1 таблица)
+dell_b.onclick = удалить_строчку;                   //при нажатии кнопки удалить(1 таблица)
     
-dell_b.onclick = function () {                   //при нажатии кнопки удалить
-    if (счётчик == 2) {
-        dell_b.setAttribute("disabled", "disabled");
-    }
-    удалить_строчку();
-}
-add_b_2.onclick = function () {
-    if (счётчик1 == 1) {
-        dell_b_2.removeAttribute("disabled");
-    }
-    счётчик1 = счётчик1 + 1;
-    добавить_строчку1();
-}
-dell_b_2.onclick = function () {
-    if (счётчик1 == 2) {
-        dell_b_2.setAttribute("disabled", "disabled");
-    }
-    удалить_строчку1();
-}
+add_b_2.onclick = добавить_строчку1;                //при нажатии кнопки добавить (1 таблица)
+dell_b_2.onclick = удалить_строчку1;                //при нажатии кнопки удалить(2 таблица)
 
 
-
-let summ = 0;
-let minn = 0;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[вычисление первью таблицы]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let summ = 0;                               //доход
+let minn = 0;                               //вычет
 
 function fill_preview_table() {             //вычисляет и заполняет таблицу в HTML
     summ = 0;                               //доход
@@ -137,14 +131,16 @@ function fill_preview_table() {             //вычисляет и заполн
         minn = minn + +document.getElementById(`the_amount_of_the_deduction_two_${i+1}`).value;
     }
 
-    document.getElementById('cell_1').innerText = summ;
-    document.getElementById('cell_2').innerText = summ-minn;
-    document.getElementById('cell_3').innerText = (summ-minn)*(+document.getElementById('tax').value/100);
-    document.getElementById('cell_4').innerText = (summ-minn)*(+document.getElementById('tax').value/100);
-    document.getElementById('cell_5').innerText = (summ-minn)*(+document.getElementById('tax').value/100);
+    document.getElementById('cell_1').innerText = summ;                                                     //ячейка 1
+    document.getElementById('cell_2').innerText = summ-minn;                                                //ячейка 2
+    document.getElementById('cell_3').innerText = (summ-minn)*(+document.getElementById('tax').value/100);  //ячейка 3
+    document.getElementById('cell_4').innerText = (summ-minn)*(+document.getElementById('tax').value/100);  //ячейка 4
+    document.getElementById('cell_5').innerText = (summ-minn)*(+document.getElementById('tax').value/100);  //ячейка 5
 }
-document.documentElement.addEventListener('keyup', fill_preview_table);
-document.documentElement.addEventListener('click',fill_preview_table);
+document.documentElement.addEventListener('keyup', fill_preview_table); //тригер поднятия клавиши
+//document.documentElement.addEventListener('click',fill_preview_table);  //тригер клика
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
  let clicks = 1;
     function onClick() {
