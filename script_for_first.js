@@ -1,1 +1,2 @@
-let all_input = document.querySelectorAll("input:not()")
+let all_input = document.querySelectorAll("input")
+console.log(all_input);
