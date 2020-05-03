@@ -128,4 +128,10 @@ function summer() {
 document.documentElement.addEventListener('keyup', summer);
 document.documentElement.addEventListener('click',summer);
 
+ var clicks = 1;
+    function onClick() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
+    };
+
 
