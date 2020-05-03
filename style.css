@@ -307,4 +307,12 @@ tr:nth-child(even) {
   align-content: center;
   margin: 0;
   }
+  #button2{
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0;
+  margin-bottom: 10px;
+  }
 }
