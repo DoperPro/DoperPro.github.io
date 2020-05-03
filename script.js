@@ -132,7 +132,7 @@ function fill_preview_table() {         //вычисляет и заполняе
 document.documentElement.addEventListener('keyup', fill_preview_table);
 document.documentElement.addEventListener('click',fill_preview_table);
 
- var clicks = 1;
+ let clicks = 1;
     function onClick() {
         clicks += 1;
         document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
