@@ -23,6 +23,8 @@ let obj_2ndfl = {       //объект данных 2 ндфл
 }
 let obj_fill = []        //массив данных для сервера
 
+//!!!!!!!!!!!!!!!!!!!!!!  ВРЕМЕННЫЙ МАССИВ ДЛЯ ОТЛАДКИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let obj_non_json = []   
 
 function fill_obj_2ndfl(){                              //заполняет объект данных 2 ндфл
     for (let i = 0; i < счётчик; i++) {                 //заполняет массив суммы для 1 табл
@@ -47,7 +49,11 @@ function generate_json_file(add){
 }
 
 
-function добавить_строчку() {                            //добавляет строчку с доходами 
+function добавить_строчку() {                            //добавляет строчку с доходами
+    if (счётчик == 1) {
+        dell_b.removeAttribute("disabled");
+    }
+    счётчик = счётчик + 1;
     let tmp = document.createElement('div');
     tmp.className = 'row justify-content-center';
     tmp.innerHTML = `
@@ -71,10 +77,7 @@ function добавить_строчку() {                            //доб
     <input type="text" name="the_amount_of_the_deduction_${счётчик}" id="the_amount_of_the_deduction_${счётчик}"form="main_form2" class="col-3">         
 `;
     tabl.append(tmp);
-    if (счётчик == 1) {
-        dell_b.removeAttribute("disabled");
-    }
-    счётчик = счётчик + 1;
+   
 }
 
 function добавить_строчку1() {                            //добавляет строчку с вычитами
@@ -150,17 +153,18 @@ document.documentElement.addEventListener('keyup', fill_preview_table); //три
         obj_fill.push(JSON.stringify(obj_2ndfl));
         clear_obj_2ndfl();
         let tmp = счётчик;
-        for (let i = 0;i < tmp;i++){
-            console.error("dell_1");
-            
+        for (let i = 1;i < tmp;i++){
             удалить_строчку();
         }
-        
         tmp = счётчик1;
-        for (let i = 0;i < tmp;i++){
+        for (let i = 1;i < tmp;i++){
             удалить_строчку1();
         }
         
+        console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
+        obj_non_json.push(JSON.parse(obj_fill[obj_fill.length-1])); // ◄ ДЛЯ ОТЛАДКИ
+        console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
+
     };
 
 
