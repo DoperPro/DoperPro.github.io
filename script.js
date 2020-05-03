@@ -21,6 +21,8 @@ let obj_2ndfl = {       //объект данных 2 ндфл
     mun:[],                 //массив вычита для 1 табл
     n:[]                    //массив вычита
 }
+let obj_fill = []        //массив данных для сервера
+
 
 function fill_obj_2ndfl(){                              //заполняет объект данных 2 ндфл
     for (let i = 0; i < счётчик; i++) {                 //заполняет массив суммы для 1 табл
@@ -34,9 +36,16 @@ function fill_obj_2ndfl(){                              //заполняет о�
     }
 }
 
+function clear_obj_2ndfl(){                             //очищает объект данных 2 ндфл
+    obj_2ndfl.sun = [];
+    obj_2ndfl.mun = [];
+    obj_2ndfl.n = [];
+}
+
 function generate_json_file(add){  
 
 }
+
 
 function добавить_строчку() {                            //добавляет строчку с доходами 
     let tmp = document.createElement('div');
@@ -142,6 +151,17 @@ document.documentElement.addEventListener('click',fill_preview_table);
     function onClick() {
         clicks += 1;
         document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
+        fill_obj_2ndfl();
+        obj_fill.push(JSON.stringify(obj_2ndfl));
+        clear_obj_2ndfl();
+        for (let i = 0;i < счётчик;i++){
+            удалить_строчку();
+        }
+        счётчик = 1;
+        for (let i = 0;i < счётчик1;i++){
+            удалить_строчку1();
+        }
+        счётчик1 = 1;
     };
 
 
