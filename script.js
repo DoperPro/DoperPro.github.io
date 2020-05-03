@@ -4,6 +4,7 @@ let add_b = document.getElementById("add_button");      //кнопка доба�
 let dell_b = document.getElementById("dell_button");    //кнопка удалить таблица доходов
 let add_b_2 = document.getElementById("add_button1");
 let dell_b_2 = document.getElementById("dell_button1");
+let button_add = document.getElementById("button1");    // кнопка добавления 2НДФЛ
 
 let счётчик = 1                                         //содержит колличество строк
 let счётчик1 = 1
