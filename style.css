@@ -21,6 +21,9 @@ form{
 li {
     list-style-type: none;
 }
+ul{
+  padding: 0;
+}
 input {
   border-radius: 5px;
   font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -208,12 +211,11 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   }
   .surname{
   width: 95%;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -227,6 +229,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
+  margin: 0 auto;
   }
   .series_number{
   width: 95%;
@@ -235,7 +238,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
+  margin: 0 auto;
   }
   #location{
   width: 100%;
@@ -247,7 +250,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
+  margin: 0 auto;
   }
   #issued_by{
   width: 100%;
@@ -259,7 +262,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
+  margin: 0 auto;
   }
   .taxpayer1{
   width: 95%;
@@ -268,7 +271,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
+  margin: 0 auto;
   margin-bottom: 30px;
   }
   .phone{
@@ -278,7 +281,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
+  margin: 0 auto;
   }
   .ENN_2{
   width: 95%;
