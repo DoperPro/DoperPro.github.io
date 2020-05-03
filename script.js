@@ -16,12 +16,13 @@ let tabl = document.getElementById("tabl_1");     //<-- id того класса
 let tabl1 = document.getElementById("tabl_1.1");        //id второй таблицы
 
 
-let obj_2ndfl = {                                   //объект данных 2 ндфл
-    mon: 1,
-    sun:[],
-    mun:[],
-    k:1,
-    n:[]
+let obj_2ndfl = {       //объект данных 2 ндфл
+    sun:[],                 //массив суммы для 1 табл
+    mun:[],                 //массив вычита для 1 табл
+    n:[]                    //массив вычита
+}
+
+function fill_obj_2ndfl(){
 
 }
 
@@ -110,7 +111,7 @@ dell_b_2.onclick = function () {
 let summ = 0;
 let minn = 0;
 
-function summer() {
+function fill_preview_table() {         //вычисляет и заполняет таблицу в HTML
     console.log('f');
     summ = 0;
     minn = 0;
@@ -128,8 +129,8 @@ function summer() {
     document.getElementById('cell_4').innerText = (summ-minn)*(+document.getElementById('tax').value/100);
     document.getElementById('cell_5').innerText = (summ-minn)*(+document.getElementById('tax').value/100);
 }
-document.documentElement.addEventListener('keyup', summer);
-document.documentElement.addEventListener('click',summer);
+document.documentElement.addEventListener('keyup', fill_preview_table);
+document.documentElement.addEventListener('click',fill_preview_table);
 
  var clicks = 1;
     function onClick() {
