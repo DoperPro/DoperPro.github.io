@@ -22,10 +22,15 @@ let obj_2ndfl = {       //объект данных 2 ндфл
     n:[]                    //массив вычита
 }
 
-function fill_obj_2ndfl(){
-    for (let i = 0; i < счётчик; i++) {
+function fill_obj_2ndfl(){                              //заполняет объект данных 2 ндфл
+    for (let i = 0; i < счётчик; i++) {                 //заполняет массив суммы для 1 табл
         obj_2ndfl.sun.push(+document.getElementById(`amount_of_income_${i+1}`).value);
-        console.log("ау");
+    }
+    for (let i = 0; i < счётчик; i++) {                 //заполняет массив вычита для 1 табл
+        obj_2ndfl.mun.push(+document.getElementById(`the_amount_of_the_deduction_${i+1}`).value);
+    }
+    for (let i = 0; i < счётчик1; i++) {                 //заполняет массив вычита
+        obj_2ndfl.n.push(+document.getElementById(`the_amount_of_the_deduction_two_${i+1}`).value);
     }
 }
 
