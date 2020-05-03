@@ -5,6 +5,7 @@ let dell_b = document.getElementById("dell_button");    //кнопка удал�
 let add_b_2 = document.getElementById("add_button1");
 let dell_b_2 = document.getElementById("dell_button1");
 let button_add = document.getElementById("button1");    // кнопка добавления 2НДФЛ
+                                                        // должна отправить данные в .json
 
 let счётчик = 1                                         //содержит колличество строк
 let счётчик1 = 1
@@ -14,6 +15,10 @@ dell_b_2.setAttribute("disabled", "disabled");
 let tabl = document.getElementById("tabl_1");     //<-- id того класса таблицы
 let tabl1 = document.getElementById("tabl_1.1");
 
+
+function generate_json_file(add){  
+
+}
 
 function добавить_строчку() {                            //добавляет строчку с доходами 
     let tmp = document.createElement('div');
@@ -41,7 +46,7 @@ function добавить_строчку() {                            //доб
     tabl.append(tmp);
 }
 
-function добавить_строчку1() {                            //добавляет строчку с доходами 
+function добавить_строчку1() {                            //добавляет строчку с вычитами 
     let tmp = document.createElement('div');
     tmp.className = 'row justify-content-center';
     tmp.innerHTML = `
