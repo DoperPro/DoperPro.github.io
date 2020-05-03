@@ -1,0 +1,1 @@
+let all_input = document.querySelectorAll("input:not()")
