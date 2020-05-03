@@ -197,6 +197,10 @@ tr:nth-child(even) {
   .taxpayer{
     text-align: center;
   }
+  span{
+  margin-left: auto; 
+  margin-right: auto;
+}
   .ENN{
   width: 95%; 
   display: flex;
@@ -283,8 +287,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
-  margin: 0;
-  margin-left: 15px;
+  margin: 0 auto;
   }
   .source_of_payment{
   width: 95%;
@@ -296,7 +299,7 @@ tr:nth-child(even) {
   margin-left: 15px;
   }
   #source_of_payment{
-    width: 100%;
+  width: 100%;
   }
   .search{
   width: 95%;
