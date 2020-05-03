@@ -111,10 +111,9 @@ dell_b_2.onclick = function () {
 let summ = 0;
 let minn = 0;
 
-function fill_preview_table() {         //вычисляет и заполняет таблицу в HTML
-    console.log('f');
-    summ = 0;
-    minn = 0;
+function fill_preview_table() {             //вычисляет и заполняет таблицу в HTML
+    summ = 0;                               //доход
+    minn = 0;                               //вычет
     for (let i = 0; i < счётчик; i++) {
         summ = summ + +document.getElementById(`amount_of_income_${i+1}`).value;
         
