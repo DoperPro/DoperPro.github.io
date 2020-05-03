@@ -71,6 +71,10 @@ function добавить_строчку() {                            //доб
     <input type="text" name="the_amount_of_the_deduction_${счётчик}" id="the_amount_of_the_deduction_${счётчик}"form="main_form2" class="col-3">         
 `;
     tabl.append(tmp);
+    if (счётчик == 1) {
+        dell_b.removeAttribute("disabled");
+    }
+    счётчик = счётчик + 1;
 }
 
 function добавить_строчку1() {                            //добавляет строчку с вычитами 
@@ -96,13 +100,8 @@ function удалить_строчку1() {                    //для втор
 }
 
 
-add_b.onclick = function () {                     //при нажатии кнопки добавить
-    if (счётчик == 1) {
-        dell_b.removeAttribute("disabled");
-    }
-    счётчик = счётчик + 1;
-    добавить_строчку();
-}
+add_b.onclick = добавить_строчку;                 //при нажатии кнопки добавить
+    
 dell_b.onclick = function () {                   //при нажатии кнопки удалить
     if (счётчик == 2) {
         dell_b.setAttribute("disabled", "disabled");
@@ -154,14 +153,18 @@ document.documentElement.addEventListener('click',fill_preview_table);
         fill_obj_2ndfl();
         obj_fill.push(JSON.stringify(obj_2ndfl));
         clear_obj_2ndfl();
-        for (let i = 0;i < счётчик;i++){
+        let tmp = счётчик;
+        for (let i = 0;i < tmp;i++){
+            console.error("dell_1");
+            
             удалить_строчку();
         }
-        счётчик = 1;
-        for (let i = 0;i < счётчик1;i++){
+        
+        tmp = счётчик1;
+        for (let i = 0;i < tmp;i++){
             удалить_строчку1();
         }
-        счётчик1 = 1;
+        
     };
 
 
