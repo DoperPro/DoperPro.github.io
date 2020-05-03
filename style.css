@@ -110,7 +110,7 @@ tr:nth-child(even) {
 	margin-top: 40px;
 }
 .tax{
-  margin: 0 0 0 -40px;
+  margin: 0;
 }
 #tax{
   width: 35px;
