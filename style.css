@@ -107,7 +107,7 @@ tr:nth-child(even) {
 	margin-top: 40px;
 }
 .tax{
-  margin: 0;
+  margin: 0 0 0 -40px;
 }
 #tax{
   width: 35px;
@@ -180,12 +180,10 @@ tr:nth-child(even) {
   border-style: solid;
   border-radius: 50px;
 
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  margin-bottom: 13px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 17px;
+  padding-right: 17px;
 
   transition: 0.2s ease-out;
 }
@@ -213,6 +211,9 @@ tr:nth-child(even) {
   align-self: center;
   align-content: center;
   margin: 0 auto 30px;
+  }
+  .tax{
+  margin: 0 0 0 20px;
   }
   .surname{
   width: 95%;
