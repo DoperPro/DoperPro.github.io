@@ -24,9 +24,8 @@ let obj_2ndfl = {       //объект данных 2 ндфл
 
 function fill_obj_2ndfl(){
     for (let i = 0; i < счётчик; i++) {
-        obj_2ndfl.sun.append(+document.getElementById(`amount_of_income_${i+1}`).value);
+        obj_2ndfl.sun.push(+document.getElementById(`amount_of_income_${i+1}`).value);
         console.log("ау");
-        
     }
 }
 
