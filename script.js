@@ -5,7 +5,7 @@ let dell_b = document.getElementById("dell_button");    //кнопка удал�
 let add_b_2 = document.getElementById("add_button1");
 let dell_b_2 = document.getElementById("dell_button1");
 let button_add = document.getElementById("button1");    // кнопка добавления 2НДФЛ
-                                                        // должна отправить данные в .json
+// должна отправить данные в .json
 
 let счётчик = 1                                         //содержит колличество строк
 let счётчик1 = 1
@@ -17,34 +17,34 @@ let tabl1 = document.getElementById("tabl_1.1");        //id второй таб
 
 
 let obj_2ndfl = {       //объект данных 2 ндфл
-    sun:[],                 //массив суммы для 1 табл
-    mun:[],                 //массив вычита для 1 табл
-    n:[]                    //массив вычита
+    sun: [],                 //массив суммы для 1 табл
+    mun: [],                 //массив вычита для 1 табл
+    n: []                    //массив вычита
 }
 let obj_fill = []        //массив данных для сервера
 
 //!!!!!!!!!!!!!!!!!!!!!!  ВРЕМЕННЫЙ МАССИВ ДЛЯ ОТЛАДКИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let obj_non_json = []   
+let obj_non_json = []
 
-function fill_obj_2ndfl(){                              //заполняет объект данных 2 ндфл
+function fill_obj_2ndfl() {                              //заполняет объект данных 2 ндфл
     for (let i = 0; i < счётчик; i++) {                 //заполняет массив суммы для 1 табл
-        obj_2ndfl.sun.push(+document.getElementById(`amount_of_income_${i+1}`).value);
+        obj_2ndfl.sun.push(+document.getElementById(`amount_of_income_${i + 1}`).value);
     }
     for (let i = 0; i < счётчик; i++) {                 //заполняет массив вычита для 1 табл
-        obj_2ndfl.mun.push(+document.getElementById(`the_amount_of_the_deduction_${i+1}`).value);
+        obj_2ndfl.mun.push(+document.getElementById(`the_amount_of_the_deduction_${i + 1}`).value);
     }
     for (let i = 0; i < счётчик1; i++) {                 //заполняет массив вычита
-        obj_2ndfl.n.push(+document.getElementById(`the_amount_of_the_deduction_two_${i+1}`).value);
+        obj_2ndfl.n.push(+document.getElementById(`the_amount_of_the_deduction_two_${i + 1}`).value);
     }
 }
 
-function clear_obj_2ndfl(){                             //очищает объект данных 2 ндфл
+function clear_obj_2ndfl() {                             //очищает объект данных 2 ндфл
     obj_2ndfl.sun = [];
     obj_2ndfl.mun = [];
     obj_2ndfl.n = [];
 }
 
-function generate_json_file(add){  
+function generate_json_file(add) {
 
 }
 
@@ -77,7 +77,7 @@ function добавить_строчку() {                            //доб
     <input type="text" name="the_amount_of_the_deduction_${счётчик}" id="the_amount_of_the_deduction_${счётчик}"form="main_form2" class="col-3">         
 `;
     tabl.append(tmp);
-   
+
 }
 
 function добавить_строчку1() {                            //добавляет строчку с вычитами
@@ -115,7 +115,7 @@ function удалить_строчку1() {                       //для вт�
 
 add_b.onclick = добавить_строчку;                   //при нажатии кнопки добавить (1 таблица)
 dell_b.onclick = удалить_строчку;                   //при нажатии кнопки удалить(1 таблица)
-    
+
 add_b_2.onclick = добавить_строчку1;                //при нажатии кнопки добавить (1 таблица)
 dell_b_2.onclick = удалить_строчку1;                //при нажатии кнопки удалить(2 таблица)
 
@@ -128,53 +128,54 @@ function fill_preview_table() {             //вычисляет и заполн
     summ = 0;                               //доход
     minn = 0;                               //вычет
     for (let i = 0; i < счётчик; i++) {
-        summ = summ + +document.getElementById(`amount_of_income_${i+1}`).value;
+        summ = summ + +document.getElementById(`amount_of_income_${i + 1}`).value;
     }
-    for (let i = 0; i< счётчик1; i++){
-        minn = minn + +document.getElementById(`the_amount_of_the_deduction_two_${i+1}`).value;
+    for (let i = 0; i < счётчик1; i++) {
+        minn = minn + +document.getElementById(`the_amount_of_the_deduction_two_${i + 1}`).value;
     }
 
     document.getElementById('cell_1').innerText = summ;                                                     //ячейка 1
-    document.getElementById('cell_2').innerText = summ-minn;                                                //ячейка 2
-    document.getElementById('cell_3').innerText = (summ-minn)*(+document.getElementById('tax').value/100);  //ячейка 3
-    document.getElementById('cell_4').innerText = (summ-minn)*(+document.getElementById('tax').value/100);  //ячейка 4
-    document.getElementById('cell_5').innerText = (summ-minn)*(+document.getElementById('tax').value/100);  //ячейка 5
+    document.getElementById('cell_2').innerText = summ - minn;                                                //ячейка 2
+    document.getElementById('cell_3').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 3
+    document.getElementById('cell_4').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 4
+    document.getElementById('cell_5').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 5
 }
 document.documentElement.addEventListener('keyup', fill_preview_table); //тригер поднятия клавиши
 //document.documentElement.addEventListener('click',fill_preview_table);  //тригер клика
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
- let clicks = 1;
-    function onClick() {
-        clicks += 1;
-        document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
+let clicks = 1;
+function onClick() {
+    clicks += 1;
+    document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
 
-        fill_obj_2ndfl();                                       //заполнить obj
-        obj_fill.push(JSON.stringify(obj_2ndfl));               //записать как JSON 
-        clear_obj_2ndfl();                                      //очистить obj
-        let tmp = счётчик;
-        for (let i = 1;i < tmp;i++){
-            удалить_строчку();
-        }
-        tmp = счётчик1;
-        for (let i = 1;i < tmp;i++){
-            удалить_строчку1();
-        }
-        
-        // console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
-        obj_non_json.push(JSON.parse(obj_fill[obj_fill.length-1])); // ◄ ДЛЯ ОТЛАДКИ
-        // console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
-        
-        
-        
-        let all_input = document.querySelectorAll('input:not([type="button"])');
-        for(let i = 0; i < all_input.length; i++){
-            all_input[i].value = "";
-        }
-    };
+    fill_obj_2ndfl();                                       //заполнить obj
+    obj_fill.push(JSON.stringify(obj_2ndfl));               //записать как JSON 
+    clear_obj_2ndfl();                                      //очистить obj
+    let tmp = счётчик;
+    for (let i = 1; i < tmp; i++) {
+        удалить_строчку();
+    }
+    tmp = счётчик1;
+    for (let i = 1; i < tmp; i++) {
+        удалить_строчку1();
+    }
 
-    $(window).scroll(function() {
+    // console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
+    obj_non_json.push(JSON.parse(obj_fill[obj_fill.length - 1])); // ◄ ДЛЯ ОТЛАДКИ
+    // console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
+
+
+
+    let all_input = document.querySelectorAll('input:not([type="button"])');
+    for (let i = 0; i < all_input.length; i++) {
+        all_input[i].value = "";
+    }
+    fill_preview_table(); //принудительный расчёт
+};
+
+$(window).scroll(function () {
     var height = $(window).scrollTop();
     if (height > 100) {
         $('#button1').fadeIn();
@@ -182,8 +183,8 @@ document.documentElement.addEventListener('keyup', fill_preview_table); //три
         $('#button1').fadeOut();
     }
 });
-$(document).ready(function() {
-    $("#button1").click(function(event) {
+$(document).ready(function () {
+    $("#button1").click(function (event) {
         event.preventDefault();
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
