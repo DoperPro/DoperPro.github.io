@@ -23,7 +23,11 @@ let obj_2ndfl = {       //объект данных 2 ндфл
 }
 
 function fill_obj_2ndfl(){
-
+    for (let i = 0; i < счётчик; i++) {
+        obj_2ndfl.sun.append(+document.getElementById(`amount_of_income_${i+1}`).value);
+        console.log("ау");
+        
+    }
 }
 
 function generate_json_file(add){  
@@ -116,7 +120,6 @@ function fill_preview_table() {             //вычисляет и заполн
     minn = 0;                               //вычет
     for (let i = 0; i < счётчик; i++) {
         summ = summ + +document.getElementById(`amount_of_income_${i+1}`).value;
-        
     }
     for (let i = 0; i< счётчик1; i++){
         minn = minn + +document.getElementById(`the_amount_of_the_deduction_two_${i+1}`).value;
