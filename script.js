@@ -10,11 +10,20 @@ let button_add = document.getElementById("button1");    // кнопка доба
 let счётчик = 1                                         //содержит колличество строк
 let счётчик1 = 1
 
-dell_b.setAttribute("disabled", "disabled");             //делает кнопку удаления неактивной
-dell_b_2.setAttribute("disabled", "disabled");
+dell_b.setAttribute("disabled", "disabled");            //делает кнопку удаления неактивной для 1 таблицы
+dell_b_2.setAttribute("disabled", "disabled");          //делает кнопку удаления неактивной для 2 таблицы
 let tabl = document.getElementById("tabl_1");     //<-- id того класса таблицы
-let tabl1 = document.getElementById("tabl_1.1");
+let tabl1 = document.getElementById("tabl_1.1");        //id второй таблицы
 
+
+let obj_2ndfl = {                                   //объект данных 2 ндфл
+    mon: 1,
+    sun:[],
+    mun:[],
+    k:1,
+    n:[]
+
+}
 
 function generate_json_file(add){  
 
@@ -97,16 +106,10 @@ dell_b_2.onclick = function () {
 }
 
 
-// let BT = document.getElementById("BTR");
-// BT.onclick = function(){
-//     // document.getElementById('cell_1').insertAdjacentText('beforeend','53');
-//     for(let i = 0; i <7; i = i + 1){
 
-//         document.getElementById(`cell_${i+1}`).innerHTML=((i+1)*100);
-//     }
-// }
 let summ = 0;
 let minn = 0;
+
 function summer() {
     console.log('f');
     summ = 0;
