@@ -21,9 +21,6 @@ form{
 li {
     list-style-type: none;
 }
-ul{
-  padding: 0;
-}
 input {
   border-radius: 5px;
   font: 18px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -110,7 +107,7 @@ tr:nth-child(even) {
 	margin-top: 40px;
 }
 .tax{
-  margin: 0 0 0 -40px;
+  margin: 0;
 }
 #tax{
   width: 35px;
@@ -155,6 +152,7 @@ tr:nth-child(even) {
   font-size: 18px;
   border-radius: 5px;
   background: #234361;
+  padding: 0;
 }
 .search button[type=button]{
 	margin: 15px;
@@ -203,7 +201,10 @@ tr:nth-child(even) {
   span{
   margin-left: auto; 
   margin-right: auto;
-}
+  }
+  ul{
+  padding: 0;
+  }
   .ENN{
   width: 95%; 
   display: flex;
@@ -305,7 +306,7 @@ tr:nth-child(even) {
   width: 100%;
   }
   .search{
-  width: 95%;
+  width: 100%;
   display: blocks;
   flex-direction: column;
   text-align: center;
