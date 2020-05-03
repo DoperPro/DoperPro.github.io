@@ -140,7 +140,7 @@ tr:nth-child(even) {
   margin-left: 5px; 
 }
 #button2{
-  margin: 0 0 0 800px;
+  margin: 0;
 }
 .search button[type=submit]{
   margin: 15px;
@@ -312,6 +312,7 @@ tr:nth-child(even) {
   text-align: center;
   align-self: center;
   align-content: center;
+  font-size: 21px;
   margin: 0;
   margin-bottom: 10px;
   }
