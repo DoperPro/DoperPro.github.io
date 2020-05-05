@@ -20,5 +20,8 @@
   "devDependencies": {
     "nodemon": "^2.0.3",
     "pdffiller": "0.0.11"
+  },
+  "dependencies": {
+    "@vicoders/fill-pdf-utf8": "^8.0.0"
   }
 }
