@@ -1,16 +1,36 @@
-const PDFF = require('pdffiller');          //работа с PDF
-const path = require('path');               //объект пути
+const pdff = require('./pdfform');
+const fs = require('fs');
+const in_pdf_p = './tt/in.pdf';
+let out_buf;
 
-// const ref_pdf =  path.resolve(__dirname,'3ndfl_2019.pdf');
-// console.log(ref_pdf);
-// const rez_pdf = path.resolve(__dirname,'rez.pdf');
-const ref_pdf = "tt/in.pdf"
-const rez_pdf = "tt/out.pdf"
-
-const data = {
-    "text1": "012345678901"
+function toArrayBuffer(buf) {
+    var ab = new ArrayBuffer(buf.length);
+    var view = new Uint8Array(ab);
+    for (var i = 0; i < buf.length; ++i) {
+        view[i] = buf[i];
+    }
+    return ab;
 }
-PDFF.fillForm( ref_pdf, rez_pdf, data, function(err) {
+
+fs.readFileSync(in_pdf_p, (err, data) => {
     if (err) throw err;
-    console.log("In callback (we're done).");
-});
+    console.log(data);
+    let fil = {
+        name: 'FFFFF',
+    }
+    out_buf = pdff().transform(toArrayBuffer(data),fil);
+})
+
+function toBuffer(ab) {
+    var buf = Buffer.alloc(ab.byteLength);
+    var view = new Uint8Array(ab);
+    for (var i = 0; i < buf.length; ++i) {
+        buf[i] = view[i];
+    }
+    return buf;
+}
+fs.writeFileSync('./tt/out.pdf',toBuffer(out_buf),err=>{
+    if (err) throw err;
+    console.log('запись');
+    
+})
