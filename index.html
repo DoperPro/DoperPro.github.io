@@ -27,7 +27,7 @@
 	  			<option value="21">21 — Паспорт гражданина Российской Федерации</option>
 	  			<option value="23">23 — Свидетельство о рождении, выданное уполномоченным органом иностранного государства</option>
 	  		    </select></div></li>
-	  		<li><div class="series_number"><span>Серия и номер </span><input type="text" name="series_number" id="series_number" pattern="^[0-9 ]+$">
+	  		<li><div class="series_number"><span>Серия и номер </span><input type="tel" pattern="[0-9]{10}" maxlength="10" name="series_number" id="series_number">
 	  		<span>Дата выдачи </span><input type="date" name="date_of_issue" id="date_of_issue"></div>
 	  		<div class="issued_by"><span>Кем выдан </span><input type="text" name="issued_by" id="issued_by"></div></li>
 	  	</ul>

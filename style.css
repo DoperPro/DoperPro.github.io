@@ -19,7 +19,11 @@ form{
   align-content: center;
 }
 li {
-    list-style-type: none;
+  list-style-type: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 input {
   border-radius: 5px;
@@ -86,13 +90,16 @@ tr:nth-child(even) {
   margin-top: 50px;
 }
 .ENN{
-	margin: 0 0 0 37px;
+	margin: 0 0 0 38px;
+}
+#date{
+  width: 178px;
 }
 #form{
   margin: 0 0 0 15px;
 }
 #location{
-	width: 460px;
+	width: 470px;
 }
 .section2{
 	margin-top: 40px;
@@ -192,7 +199,7 @@ tr:nth-child(even) {
   background-color: #234361;
 }
 
-@media screen and (max-width: 765px){ 
+@media screen and (max-width: 850px){ 
   .taxpayer{
     text-align: center;
   }
