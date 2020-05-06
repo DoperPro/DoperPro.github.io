@@ -14,7 +14,7 @@
 	    <ul>
 		  <li><div class="ENN"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" id="ENN" name="ENN"></div></li>
 		  <div class="surname"><span>Фамилия </span><input type="text" name="surname" id="surname" pattern="^[А-Яа-яЁё]+$">
-		  <span>Имя </span><input type="text" name="name" pattern="^[А-Яа-яЁё]+$">
+		  <span>Имя </span><input type="text" name="name" id="name"pattern="^[А-Яа-яЁё]+$">
 		  <span> Отчество* </span><input type="text" name="dad" id="dad" pattern="^[А-Яа-яЁё]+$"></div>
 		  <li><div class="data_location"><span>Дата рождения </span><input type="date" name="date" id="date">
 		  <span>Место рождения </span><input type="text" name="location" id="location"></div></li>
@@ -45,6 +45,26 @@
 	      <button type="submit">Продолжить</button>
       </div>
 	</form>
+
+
+	<!-- In a real-life scenario, you want to chose EITHER minipdf (smaller) -->
+<script src="../minipdf.js"></script>
+
+<!-- .. OR pdf.js (huge, but better compatibility).
+pdf.worker.js is slightly modified to export the actual classes we care about -->
+<script src="../customlibs/pdf.worker.js"></script>
+<script src="../minipdf_js.js"></script>
+
+
+<!-- pako and pdfform.js are required either way -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.3/pako.min.js" integrity="sha256-X7u/eQo6oIgWqc5jOmTjQn3loM8Lse0ock76Gkkn/Ro=" crossorigin="anonymous"></script>
+<script src="../pdfform.js"></script>
+
+<!-- FileSaver.js is just needed for the demo, although you'll probably use it in some form as well -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.0.0/FileSaver.min.js"></script>
+
+
+
 	<script src="script_for_first.js"></script>
 </body>
 </html>
