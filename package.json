@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/DoperPro/DoperPro.github.io#readme",
   "dependencies": {
-    "pako": "^1.0.11",
-    "text-encoding": "^0.7.0",
-    "xmldom": "^0.3.0"
+    "fill-pdf-utf8": "^2.2.1",
+    "node-pdftk": "^2.1.2",
+    "pdffiller": "0.0.11"
   }
 }
