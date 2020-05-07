@@ -1,13 +1,15 @@
 let obj = {};
 function ref() {
-    let all_input = document.querySelectorAll("input")
-
+    // let all_input = document.querySelectorAll("input")
     
-    for (let i = 0; i < all_input.length; i++) {
-        obj[all_input[i].id] = all_input[i].value;
-    }
-    obj['id_doc'] = document.getElementById('id_doc').value;
-    obj['taxpayer'] = document.getElementById('taxpayer').value;
+    
+    // for (let i = 0; i < all_input.length; i++) {
+    //     obj[all_input[i].id] = [all_input[i].value];
+    // }
+    obj['year'] = Date().split(' ')[3];
+    obj['inn'] = [document.getElementById('inn').value];
+    obj['id_doc'] = [document.getElementById('id_doc').value];
+    obj['taxpayer'] = [document.getElementById('taxpayer').value];
 
     console.log(obj);
 }
@@ -27,7 +29,7 @@ function fill(buf) {
 	}
 
 	var blob = new Blob([filled_pdf], {type: 'application/pdf'});
-	saveAs(blob, 'pdfform.js_generated.pdf');
+	saveAs(blob, '3ndfl.pdf');
 }
 
 
