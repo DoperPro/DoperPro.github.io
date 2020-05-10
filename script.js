@@ -1,19 +1,20 @@
-"use strict"
 
-let add_b = document.getElementById("add_button");      //кнопка добавить таблица доходов
-let dell_b = document.getElementById("dell_button");    //кнопка удалить таблица доходов
-let add_b_2 = document.getElementById("add_button1");
-let dell_b_2 = document.getElementById("dell_button1");
-let button_add = document.getElementById("button1");    // кнопка добавления 2НДФЛ
-// должна отправить данные в .json
 
-let счётчик = 1                                         //содержит колличество строк
-let счётчик1 = 1
+// let add_b = document.getElementById("add_button");      //кнопка добавить таблица доходов
+// let dell_b = document.getElementById("dell_button");    //кнопка удалить таблица доходов
+// let add_b_2 = document.getElementById("add_button1");
+// let dell_b_2 = document.getElementById("dell_button1");
+// let button_add = document.getElementById("button1");    // кнопка добавления 2НДФЛ
+// // должна отправить данные в .json
 
-dell_b.setAttribute("disabled", "disabled");            //делает кнопку удаления неактивной для 1 таблицы
-dell_b_2.setAttribute("disabled", "disabled");          //делает кнопку удаления неактивной для 2 таблицы
-let tabl = document.getElementById("tabl_1");     //<-- id того класса таблицы
-let tabl1 = document.getElementById("tabl_1.1");        //id второй таблицы
+// let счётчик = 1                                         //содержит колличество строк
+// let счётчик1 = 1
+
+// dell_b.setAttribute("disabled", "disabled");            //делает кнопку удаления неактивной для 1 таблицы
+// dell_b_2.setAttribute("disabled", "disabled");          //делает кнопку удаления неактивной для 2 таблицы
+// let tabl = document.getElementById("tabl_1");     //<-- id того класса таблицы
+// let tabl1 = document.getElementById("tabl_1.1");        //id второй таблицы
+
 
 
 let obj_2ndfl = {       //объект данных 2 ндфл
@@ -145,37 +146,37 @@ document.documentElement.addEventListener('keyup', fill_preview_table); //три
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
- let clicks = 1;
-    function onClick() {
-        clicks += 1;
-        document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
+let clicks = 1;
+function onClick() {
+    clicks += 1;
+    document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
 
-        fill_obj_2ndfl();                                       //заполнить obj
-        obj_fill.push(JSON.stringify(obj_2ndfl));               //записать как JSON 
-        clear_obj_2ndfl();                                      //очистить obj
-        let tmp = счётчик;
-        for (let i = 1;i < tmp;i++){
-            удалить_строчку();
-        }
-        tmp = счётчик1;
-        for (let i = 1;i < tmp;i++){
-            удалить_строчку1();
-        }
-        
-        // console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
-        obj_non_json.push(JSON.parse(obj_fill[obj_fill.length-1])); // ◄ ДЛЯ ОТЛАДКИ
-        // console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
-        
-        
-        
-        let all_input = document.querySelectorAll('input:not([type="button"])');
-        for(let i = 0; i < all_input.length; i++){
-            all_input[i].value = "";
-        
-        }
-        fill_preview_table(); //принудительный расчёт
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-    };
+    fill_obj_2ndfl();                                       //заполнить obj
+    obj_fill.push(JSON.stringify(obj_2ndfl));               //записать как JSON 
+    clear_obj_2ndfl();                                      //очистить obj
+    let tmp = счётчик;
+    for (let i = 1; i < tmp; i++) {
+        удалить_строчку();
+    }
+    tmp = счётчик1;
+    for (let i = 1; i < tmp; i++) {
+        удалить_строчку1();
+    }
+
+    // console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
+    obj_non_json.push(JSON.parse(obj_fill[obj_fill.length - 1])); // ◄ ДЛЯ ОТЛАДКИ
+    // console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
+
+
+
+    let all_input = document.querySelectorAll('input:not([type="button"])');
+    for (let i = 0; i < all_input.length; i++) {
+        all_input[i].value = "";
+
+    }
+    fill_preview_table(); //принудительный расчёт
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+};
 
 
 
