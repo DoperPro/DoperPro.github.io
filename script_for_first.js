@@ -1,3 +1,5 @@
+let button_back; // кнопка второй страницы
+
 //всё содержимое body без скриптов
 const body_content = document.getElementById('body_content');
 //обЪект с данными для заполнения pdf
@@ -18,6 +20,12 @@ function first_page_save() {
         date_of_issue: document.getElementById('date_of_issue').value,
         issued_by: document.getElementById('issued_by').value,
         phone: document.getElementById('phone').value,
+    }
+}
+
+function first_page_fill(){
+    for (let index in first_page_object){
+        document.getElementById(index).value = first_page_object[index];
     }
 }
 //функция наполнения объекта данными с первой страницы
@@ -85,7 +93,7 @@ xhr.send();
 
 function second_page() {
     body_content.innerHTML = `
-<main>
+	<main>
 		<form action="#" method="get" id="main_form2">
 			<p id="form">Бланк № <a id="clicks">1</a></p>
 			<div class="income">
@@ -215,7 +223,7 @@ function second_page() {
 				</tr>
 			</table>
 			<div class="search">
-				<a href="index.html" onclick="history.back(-1); return false;" class="button-back"> Назад</a>
+				<a href="index.html" class="button-back"> Назад</a>
 				<button type="button" id="button1" onClick="onClick()">Добавить</button>
 				<button type="button" id="button2">Отправить</button>
 			</div>
@@ -223,20 +231,96 @@ function second_page() {
 	</main>
 `;
 }
-
+function first_page() {
+    body_content.innerHTML = `
+    <form action="income.html" method="get" id="main_form">
+    <div class="taxpayer">
+        <h1>Данные о налогоплательщике<h1>
+    </div>
+    <div class="section1">
+        <ul>
+            <li>
+                <div class="ENN"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" id="ENN"
+                        name="ENN"></div>
+            </li>
+            <div class="surname"><span>Фамилия </span><input type="text" name="surname" id="surname"
+                    pattern="^[А-Яа-яЁё]+$">
+                <span>Имя </span><input type="text" name="name" id="name" pattern="^[А-Яа-яЁё]+$">
+                <span> Отчество* </span><input type="text" name="dad" id="dad" pattern="^[А-Яа-яЁё]+$"></div>
+            <li>
+                <div class="data_location"><span>Дата рождения </span><input type="date" name="date" id="date">
+                    <span>Место рождения </span><input type="text" name="location" id="location"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="section2">
+        <ul>
+            <li>
+                <div class="id_doc"><span>Код вида документа </span><select name="id_doc" id="id_doc"
+                        form="main_form">
+                        <option value="18">18 — Свидетельство о предоставлении временного убежища на территории
+                            Российской Федерации</option>
+                        <option value="21">21 — Паспорт гражданина Российской Федерации</option>
+                        <option value="23">23 — Свидетельство о рождении, выданное уполномоченным органом
+                            иностранного государства</option>
+                    </select></div>
+            </li>
+            <li>
+                <div class="series_number"><span>Серия и номер </span><input type="tel" pattern="[0-9]{10}"
+                        maxlength="10" name="series_number" id="series_number">
+                    <span>Дата выдачи </span><input type="date" name="date_of_issue" id="date_of_issue"></div>
+                <div class="issued_by"><span>Кем выдан </span><input type="text" name="issued_by"
+                        id="issued_by"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="section3">
+        <ul>
+            <li>
+                <div class="taxpayer1"><span>Код статуса налогоплательщика </span><select name="taxpayer"
+                        id="taxpayer" form="main_form">
+                        <option value="1">1 — налоговый резидент Российской Федерации</option>
+                        <option value="2">2 — лицо, не являющееся налоговым резидентом Российской Федерации
+                        </option>
+                    </select></div>
+            </li>
+            <li>
+                <div class="phone"><span>Номер контакного телефона </span><input type="tel" pattern="[0-9]{12}"
+                        maxlength="12" name="phone" id="phone"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="search">
+        <button type="submit">Продолжить</button>
+    </div>
+</form>
+`;
+}
 
 //при нажатии кнопки "продолжить"на первой страници
 var fp_continue_button = document.querySelector('#main_form');
-fp_continue_button.addEventListener('submit', function (e) {
+fp_continue_button.addEventListener('submit',fp_continue_button_F);
 
+
+function fp_continue_button_F(e){
     e.preventDefault();
+    fp_continue_button.removeEventListener('submit',fp_continue_button_F);
     first_page_save();
     ref_1();
     // fill(current_buffer);
     
     second_page();
-});
-const button_back = document.querySelector('.button-back');
-button_back.addEventListener('click',function (e) {
-
-});
+    button_back = document.querySelector('.button-back');
+    button_back.addEventListener('click',button_back_F);
+}
+function button_back_F(e) {
+    e.preventDefault();
+    console.log('YYYYYYYYYYY first_page');
+    button_back.removeEventListener('click',button_back_F);
+    first_page();
+    first_page_fill();
+    fp_continue_button = document.querySelector('#main_form');
+    fp_continue_button.addEventListener('submit',fp_continue_button_F);
+    
+    
+}
