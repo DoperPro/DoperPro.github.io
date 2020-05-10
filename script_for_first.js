@@ -36,10 +36,10 @@ function ref_1() {
     // for (let i = 0; i < all_input.length; i++) {
     //     obj[all_input[i].id] = [all_input[i].value];
     // }
-
-    obj['DOB_d'] = [first_page_object.date.split('-')[2]];   //Дата рождения день
-    obj['DOB_m'] = [first_page_object.date.split('-')[1]];   //Дата рождения месяц
-    obj['DOB_y'] = [first_page_object.date.split('-')[0]];   //Дата рождения год
+    obj['name'] = [first_page_object.name];
+    obj['date_of_issue1'] = [first_page_object.date.split('-')[2]];   //Дата рождения день
+    obj['date_of_issue2'] = [first_page_object.date.split('-')[1]];   //Дата рождения месяц
+    obj['date_of_issue3'] = [first_page_object.date.split('-')[0]];   //Дата рождения год
 
     obj['year'] = [Date().split(' ')[3]];
     obj['ENN'] = [first_page_object.ENN];
@@ -56,9 +56,7 @@ function fill(buf) {
 
     var filled_pdf;
     try {
-        filled_pdf = pdfform().transform(buf, {
-            name: [obj.name],
-        });
+        filled_pdf = pdfform().transform(buf, obj);
     } catch (e) {
         return on_error(e);
     }
