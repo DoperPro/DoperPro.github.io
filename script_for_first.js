@@ -36,10 +36,16 @@ function ref_1() {
     // for (let i = 0; i < all_input.length; i++) {
     //     obj[all_input[i].id] = [all_input[i].value];
     // }
+    obj['surname'] = [first_page_object.surname];
     obj['name'] = [first_page_object.name];
-    obj['date_of_issue1'] = [first_page_object.date.split('-')[2]];   //Дата рождения день
-    obj['date_of_issue2'] = [first_page_object.date.split('-')[1]];   //Дата рождения месяц
-    obj['date_of_issue3'] = [first_page_object.date.split('-')[0]];   //Дата рождения год
+    obj['dad'] = [first_page_object.dad];
+
+    obj['location'] = [first_page_object.location.slice(0,17)] ; //место рождения
+    obj['location2']; //место рождения
+
+    obj['date1'] = [first_page_object.date.split('-')[2]];   //Дата рождения день
+    obj['date2'] = [first_page_object.date.split('-')[1]];   //Дата рождения месяц
+    obj['date3'] = [first_page_object.date.split('-')[0]];   //Дата рождения год
 
     obj['year'] = [Date().split(' ')[3]];
     obj['ENN'] = [first_page_object.ENN];
@@ -312,6 +318,7 @@ function fp_continue_button_F(e) {
     button_back.addEventListener('click', button_back_F);
     set_second_page_elemint();
 }
+//на второй странице кнопка назад
 function button_back_F(e) {
     e.preventDefault();
     console.log('YYYYYYYYYYY first_page');
@@ -371,10 +378,21 @@ let obj_2ndfl = {       //объект данных 2 ндфл
     mun: [],                 //массив вычита для 1 табл
     n: []                    //массив вычита
 }
-let obj_fill = []        //массив данных для сервера
 
-//!!!!!!!!!!!!!!!!!!!!!!  ВРЕМЕННЫЙ МАССИВ ДЛЯ ОТЛАДКИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let obj_non_json = []
+let obj_sum_wndfl={ //хранит суммы
+    sun: [0],                 
+    mun: [0],                 
+    n: [0]
+}
+function esy_summ(arr,) {
+    let rezzz = 0;
+    for(let i = 0;i<arr.length;i++){
+        rezzz += arr[0];
+    }
+    return rezzz;
+}
+
+
 
 function fill_obj_2ndfl() {                              //заполняет объект данных 2 ндфл
     for (let i = 0; i < счётчик; i++) {                 //заполняет массив суммы для 1 табл
@@ -389,14 +407,14 @@ function fill_obj_2ndfl() {                              //заполняет о
 }
 
 function clear_obj_2ndfl() {                             //очищает объект данных 2 ндфл
+    obj_sum_wndfl.sun[0] += esy_summ(obj_2ndfl.sun);
+    obj_sum_wndfl.mun[0] += esy_summ(obj_2ndfl.mun);
+    obj_sum_wndfl.n[0] += esy_summ(obj_2ndfl.n);
     obj_2ndfl.sun = [];
     obj_2ndfl.mun = [];
     obj_2ndfl.n = [];
 }
 
-function generate_json_file(add) {
-
-}
 
 
 function добавить_строчку() {                            //добавляет строчку с доходами
