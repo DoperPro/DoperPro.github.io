@@ -1,3 +1,15 @@
+function отладка() {
+    first_page_save();
+    console.log('Данные с первой страницы сохраненны');
+    ref_1();
+    fill(current_buffer);
+}
+function отладка1() {
+    first_page_object = JSON.parse('{\"date\":\"2019-12-04\",\"ENN\":\"744773859993\",\"surname\":\"Жуков\",\"name\":\"Пётр\",\"dad\":\"Иваненко\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"12345678901234567890\",\"series_number\":\"8838442312\",\"date_of_issue\":\"2020-04-28\",\"issued_by\":\"дядей мишей\",\"phone\":\"475384758345\"}');
+    ref_1();
+    fill(current_buffer);
+}
+
 let button_back; // кнопка второй страницы
 
 //всё содержимое body без скриптов
@@ -10,7 +22,7 @@ function first_page_save() {
     first_page_object = {
         date: document.getElementById('date').value,
         ENN: document.getElementById('ENN').value,
-        surname: document.getElementById('surname').value,
+        surname:  document.getElementById('surname').value,
         name: document.getElementById('name').value,
         dad: document.getElementById('dad').value,
         id_doc: document.getElementById('id_doc').value,
@@ -41,7 +53,7 @@ function ref_1() {
     obj['dad'] = [first_page_object.dad];
 
     obj['location'] = [first_page_object.location.slice(0,17)] ; //место рождения
-    obj['location2']; //место рождения
+    obj['location2'] = [first_page_object.location.slice(17,57)]; //место рождения
 
     obj['date1'] = [first_page_object.date.split('-')[2]];   //Дата рождения день
     obj['date2'] = [first_page_object.date.split('-')[1]];   //Дата рождения месяц
