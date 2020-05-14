@@ -22,15 +22,15 @@ function first_page_save() {
     first_page_object = {
         date: document.getElementById('date').value,
         ENN: document.getElementById('ENN').value,
-        surname:  document.getElementById('surname').value,
-        name: document.getElementById('name').value,
-        dad: document.getElementById('dad').value,
+        surname:  document.getElementById('surname').value.toUpperCase(),
+        name: document.getElementById('name').value.toUpperCase(),
+        dad: document.getElementById('dad').value.toUpperCase(),
         id_doc: document.getElementById('id_doc').value,
-        taxpayer: document.getElementById('taxpayer').value,
-        location: document.getElementById('location').value,
+        taxpayer: document.getElementById('taxpayer').value.toUpperCase(),
+        location: document.getElementById('location').value.toUpperCase(),
         series_number: document.getElementById('series_number').value,
         date_of_issue: document.getElementById('date_of_issue').value,
-        issued_by: document.getElementById('issued_by').value,
+        issued_by: document.getElementById('issued_by').value.toUpperCase(),
         phone: document.getElementById('phone').value,
     }
 }
