@@ -375,7 +375,9 @@ function set_second_page_elemint() {
     dell_b_2.setAttribute("disabled", "disabled");          //делает кнопку удаления неактивной для 2 таблицы
     tabl = document.getElementById("tabl_1");     //<-- id того класса таблицы
     tabl1 = document.getElementById("tabl_1.1");        //id второй таблицы
-
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    console.log("set_second_page_elemint работает");
+    
 
 
     add_b.addEventListener('click', добавить_строчку);                   //при нажатии кнопки добавить (1 таблица)
@@ -523,12 +525,9 @@ document.documentElement.addEventListener('keyup', fill_preview_table); //три
 
 let clicks = 1;
 function onClick() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
     clicks += 1;
     document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
-
-    fill_obj_2ndfl();                                       //заполнить obj
-    obj_fill.push(JSON.stringify(obj_2ndfl));               //записать как JSON 
-    clear_obj_2ndfl();                                      //очистить obj
     let tmp = счётчик;
     for (let i = 1; i < tmp; i++) {
         удалить_строчку();
@@ -537,18 +536,11 @@ function onClick() {
     for (let i = 1; i < tmp; i++) {
         удалить_строчку1();
     }
-
-    // console.log(obj_fill);                                      // ◄ ДЛЯ ОТЛАДКИ
-    obj_non_json.push(JSON.parse(obj_fill[obj_fill.length - 1])); // ◄ ДЛЯ ОТЛАДКИ
-    // console.log(obj_non_json);                                  // ◄ ДЛЯ ОТЛАДКИ
-
-
-
     let all_input = document.querySelectorAll('input:not([type="button"])');
     for (let i = 0; i < all_input.length; i++) {
         all_input[i].value = "";
 
     }
     fill_preview_table(); //принудительный расчёт
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    
 };
