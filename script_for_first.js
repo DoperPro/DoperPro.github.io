@@ -51,9 +51,27 @@ function ref_1() {
     obj['surname'] = [first_page_object.surname];
     obj['name'] = [first_page_object.name];
     obj['dad'] = [first_page_object.dad];
+    obj['surname1'] = obj['surname'];
+    obj['name1'] = obj['name'];
+    obj['dad1'] = obj['dad'];
+
+    obj['series_number'] = [first_page_object.series_number];                   //серия и номер
+    obj['issued_by'] = [first_page_object.issued_by.slice(0,32)];               //кем выдан
+    try{
+        obj['issued_by1'] = [first_page_object.issued_by1.slice(32,72)];            //кем выдан
+    }catch (err){
+        console.log('ОШЫБКА(((');
+        alert("ОШЫБКА((")
+        
+    }
+    
 
     obj['location'] = [first_page_object.location.slice(0,17)] ; //место рождения
     obj['location2'] = [first_page_object.location.slice(17,57)]; //место рождения
+
+    obj['date_of_issue1'] = [first_page_object.date_of_issue.split('-')[2]];    //дата выдачи день
+    obj['date_of_issue2'] = [first_page_object.date_of_issue.split('-')[1]];    //дата выдачи месяц
+    obj['date_of_issue3'] = [first_page_object.date_of_issue.split('-')[0]];    //дата выдачи год
 
     obj['date1'] = [first_page_object.date.split('-')[2]];   //Дата рождения день
     obj['date2'] = [first_page_object.date.split('-')[1]];   //Дата рождения месяц
@@ -63,6 +81,8 @@ function ref_1() {
     obj['ENN'] = [first_page_object.ENN];
     obj['id_doc'] = [first_page_object.id_doc];
     obj['taxpayer'] = [first_page_object.taxpayer];
+
+    obj['phone'] = [first_page_object.phone];
 
     console.log(obj);
 }
