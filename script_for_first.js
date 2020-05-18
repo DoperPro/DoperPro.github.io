@@ -22,6 +22,9 @@ let obj = {};
 let first_page_object = {};
 function first_page_save() {
     first_page_object = {
+        taxable_period: document.getElementById('taxable_period').value.toUpperCase(),
+        tax_authority: document.getElementById('tax_authority').value.toUpperCase(),
+        reporting_year: document.getElementById('reporting_year').value,
         date: document.getElementById('date').value,
         ENN: document.getElementById('ENN').value,
         surname: document.getElementById('surname').value.toUpperCase(),
@@ -50,6 +53,9 @@ function ref_1() {
     // for (let i = 0; i < all_input.length; i++) {
     //     obj[all_input[i].id] = [all_input[i].value];
     // }
+    obj['tax_authority'] = [first_page_object.tax_authority];
+    obj['taxable_period'] = [first_page_object.taxable_period];
+    obj['reporting_year'] = [first_page_object.reporting_year];
     obj['surname'] = [first_page_object.surname];
     obj['name'] = [first_page_object.name];
     obj['dad'] = [first_page_object.dad];
