@@ -22,7 +22,7 @@ function first_page_save() {
     first_page_object = {
         date: document.getElementById('date').value,
         ENN: document.getElementById('ENN').value,
-        surname:  document.getElementById('surname').value.toUpperCase(),
+        surname: document.getElementById('surname').value.toUpperCase(),
         name: document.getElementById('name').value.toUpperCase(),
         dad: document.getElementById('dad').value.toUpperCase(),
         id_doc: document.getElementById('id_doc').value,
@@ -56,18 +56,24 @@ function ref_1() {
     obj['dad1'] = obj['dad'];
 
     obj['series_number'] = [first_page_object.series_number];                   //серия и номер
-    obj['issued_by'] = [first_page_object.issued_by.slice(0,32)];               //кем выдан
-    try{
-        obj['issued_by1'] = [first_page_object.issued_by1.slice(32,72)];            //кем выдан
-    }catch (err){
+    obj['issued_by'] = [first_page_object.issued_by.slice(0, 32)];               //кем выдан
+    try {
+        obj['issued_by1'] = [first_page_object.issued_by1.slice(32, 72)];            //кем выдан
+    } catch (err) {
         console.log('ОШЫБКА(((');
-        alert("ОШЫБКА((")
-        
-    }
-    
+        alert("ОШЫБКА issued_by1")
 
-    obj['location'] = [first_page_object.location.slice(0,17)] ; //место рождения
-    obj['location2'] = [first_page_object.location.slice(17,57)]; //место рождения
+    }
+
+
+    obj['location'] = [first_page_object.location.slice(0, 17)]; //место рождения
+    try {
+        obj['location2'] = [first_page_object.location.slice(17, 57)]; //место рождения
+    } catch (err) {
+        console.log('ОШЫБКА(((');
+        alert("ОШЫБКА location2")
+
+    }
 
     obj['date_of_issue1'] = [first_page_object.date_of_issue.split('-')[2]];    //дата выдачи день
     obj['date_of_issue2'] = [first_page_object.date_of_issue.split('-')[1]];    //дата выдачи месяц
@@ -143,9 +149,9 @@ function second_page() {
 					</li>
 			</div>
 			<li>
-				<div class="ENN_2"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" name="ENN">
-					<span>КПП</span><input type="tel" pattern="[0-9]{9}" maxlength="9" name="KPP">
-					<span>Код по ОКТМО</span><input type="tel" pattern="[0-9]{11}" maxlength="11" name="OKTMO">
+				<div class="ENN_2"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" name="ENN" id="ENN_rab">
+					<span>КПП</span><input type="tel" pattern="[0-9]{9}" maxlength="9" name="KPP" id="kpp">
+					<span>Код по ОКТМО</span><input type="tel" pattern="[0-9]{11}" maxlength="11" name="OKTMO" id="oktmo">
 			</li>
 			</div>
 			<li>
@@ -365,6 +371,7 @@ function button_back_F(e) {
     fp_continue_button = document.querySelector('#main_form');
     fp_continue_button.addEventListener('submit', fp_continue_button_F);
 
+    clear_ob_2_enn();
 
 }
 let add_b;      //кнопка добавить таблица доходов
@@ -381,6 +388,8 @@ let счётчик1 = 1;
 let tabl;     //<-- id того класса таблицы
 let tabl1;        //id второй таблицы
 
+let FINAL_BTN;
+
 function set_second_page_elemint() {
     dell_b = document.getElementById("dell_button");    //кнопка удалить таблица доходов
     add_b_2 = document.getElementById("add_button1");
@@ -395,9 +404,9 @@ function set_second_page_elemint() {
     dell_b_2.setAttribute("disabled", "disabled");          //делает кнопку удаления неактивной для 2 таблицы
     tabl = document.getElementById("tabl_1");     //<-- id того класса таблицы
     tabl1 = document.getElementById("tabl_1.1");        //id второй таблицы
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+
     console.log("set_second_page_elemint работает");
-    
+
 
 
     add_b.addEventListener('click', добавить_строчку);                   //при нажатии кнопки добавить (1 таблица)
@@ -405,6 +414,8 @@ function set_second_page_elemint() {
 
     add_b_2.addEventListener('click', добавить_строчку1);                //при нажатии кнопки добавить (1 таблица)
     dell_b_2.addEventListener('click', удалить_строчку1);                //при нажатии кнопки удалить(2 таблица)
+    FINAL_BTN = document.getElementById('button2');
+    FINAL_BTN.addEventListener('click',finall_btn);
 }
 
 let obj_2ndfl = {       //объект данных 2 ндфл
@@ -413,20 +424,40 @@ let obj_2ndfl = {       //объект данных 2 ндфл
     n: []                    //массив вычита
 }
 
-let obj_sum_wndfl={ //хранит суммы
-    sun: [0],                 
-    mun: [0],                 
+let obj_sum_2ndfl = { //хранит суммы
+    sun: [0],
+    mun: [0],
     n: [0]
 }
-function esy_summ(arr,) {
+
+function esy_summ(arr) {
     let rezzz = 0;
-    for(let i = 0;i<arr.length;i++){
-        rezzz += arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        rezzz += arr[i];
     }
     return rezzz;
 }
-
-
+let ob_2_enn = {
+    ennn: [],
+    kpp: [],
+    oktmo: [],
+    name: [],
+    summ: [],
+}
+function clear_ob_2_enn() {
+    ob_2_enn.ennn = [];
+    ob_2_enn.kpp = [];
+    ob_2_enn.oktmo = [];
+    ob_2_enn.name = [];
+    ob_2_enn.summ = [];
+}
+function fill_ob_2_enn() { //заполняет ob_2_enn с инн и названиями перед очисткой объекта
+    ob_2_enn.ennn.push(document.getElementById('ENN_rab').value);
+    ob_2_enn.kpp.push(document.getElementById('kpp').value);
+    ob_2_enn.oktmo.push(document.getElementById('oktmo').value);
+    ob_2_enn.name.push(document.getElementById('source_of_payment').value);
+    ob_2_enn.summ.push(esy_summ(obj_2ndfl.sun));
+}
 
 function fill_obj_2ndfl() {                              //заполняет объект данных 2 ндфл
     for (let i = 0; i < счётчик; i++) {                 //заполняет массив суммы для 1 табл
@@ -441,9 +472,9 @@ function fill_obj_2ndfl() {                              //заполняет о
 }
 
 function clear_obj_2ndfl() {                             //очищает объект данных 2 ндфл
-    obj_sum_wndfl.sun[0] += esy_summ(obj_2ndfl.sun);
-    obj_sum_wndfl.mun[0] += esy_summ(obj_2ndfl.mun);
-    obj_sum_wndfl.n[0] += esy_summ(obj_2ndfl.n);
+    obj_sum_2ndfl.sun[0] += esy_summ(obj_2ndfl.sun);
+    obj_sum_2ndfl.mun[0] += esy_summ(obj_2ndfl.mun);
+    obj_sum_2ndfl.n[0] += esy_summ(obj_2ndfl.n);
     obj_2ndfl.sun = [];
     obj_2ndfl.mun = [];
     obj_2ndfl.n = [];
@@ -548,6 +579,16 @@ function onClick() {
     $("html, body").animate({ scrollTop: 0 }, "slow");
     clicks += 1;
     document.getElementById("clicks").innerHTML = clicks; //Счетчик нажатий
+
+    fill_obj_2ndfl();               //
+    console.log('obj_2ndfl:==============');
+    console.log(obj_2ndfl);
+    fill_ob_2_enn();                //название фирм
+    console.log('ob_2_enn:==============');
+    console.log(ob_2_enn);
+    clear_obj_2ndfl();
+
+
     let tmp = счётчик;
     for (let i = 1; i < tmp; i++) {
         удалить_строчку();
@@ -562,5 +603,34 @@ function onClick() {
 
     }
     fill_preview_table(); //принудительный расчёт
-    
+
 };
+function finall_btn() {
+
+    fill_obj_2ndfl();               //
+    console.log('obj_2ndfl:==============');
+    console.log(obj_2ndfl);
+    fill_ob_2_enn();                //название фирм
+    console.log('ob_2_enn:==============');
+    console.log(ob_2_enn);
+    clear_obj_2ndfl();
+
+    for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
+        obj[`Text38.0.0.${i}`] = [13]
+        obj[`Text39.0.0.${i}`] = [ob_2_enn.ennn[i]];
+        obj[`Text39.1.0.${i}`] = [ob_2_enn.kpp[i]];
+        obj[`Text39.2.0.${i}`] = [ob_2_enn.oktmo[i]];
+        obj[`Text40.0.0.${i}`] = [ob_2_enn.name[i]];
+        obj[`Text41.0.0.${i}`] = [String(ob_2_enn.summ[i]).split('.')[0]];
+        try {
+            obj[`Text42.0.0.${i}`] = [String(ob_2_enn.summ[i]).split('.')[1]];
+        } catch{ }
+    }
+    obj['Text35.0']=obj_sum_2ndfl.sun;
+    obj['Text35.3']=obj_sum_2ndfl.mun;
+    obj['Text35.4']=obj_sum_2ndfl.n;
+    obj['Text35.6.0']=obj_sum_2ndfl.sun[0]-obj_sum_2ndfl.mun[0]-obj_sum_2ndfl.n[0];
+
+    ref_1();
+    fill(current_buffer);
+}
