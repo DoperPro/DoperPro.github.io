@@ -56,13 +56,16 @@ function ref_1() {
     obj['surname1'] = obj['surname'];
     obj['name1'] = obj['name'];
     obj['dad1'] = obj['dad'];
+    obj['surname_1'] = obj['surname'];
+    obj['name_1'] = obj['name'];
+    obj['dad_1'] = obj['dad'];
 
     obj['series_number'] = [first_page_object.series_number];                   //серия и номер
     obj['issued_by'] = [first_page_object.issued_by.slice(0, 32)];               //кем выдан
     try {
         obj['issued_by1'] = [first_page_object.issued_by1.slice(32, 72)];            //кем выдан
     } catch (err) {
-        console.log('ОШЫБКА(((');
+        console.log('ОШЫБКА((( issued_by1');
         // alert("ОШЫБКА issued_by1")
 
     }
@@ -72,7 +75,7 @@ function ref_1() {
     try {
         obj['location2'] = [first_page_object.location.slice(17, 57)]; //место рождения
     } catch (err) {
-        console.log('ОШЫБКА(((');
+        console.log('ОШЫБКА((( location2');
         // alert("ОШЫБКА location2")
 
     }
@@ -400,7 +403,7 @@ function set_second_page_elemint() {
     add_b_2.addEventListener('click', добавить_строчку1);                //при нажатии кнопки добавить (1 таблица)
     dell_b_2.addEventListener('click', удалить_строчку1);                //при нажатии кнопки удалить(2 таблица)
     FINAL_BTN = document.getElementById('button2');
-    FINAL_BTN.addEventListener('click',finall_btn);
+    FINAL_BTN.addEventListener('click', finall_btn);
 }
 
 let obj_2ndfl = {       //объект данных 2 ндфл
@@ -410,9 +413,9 @@ let obj_2ndfl = {       //объект данных 2 ндфл
 }
 
 let obj_sum_2ndfl = { //хранит суммы
-    sun: [0],
-    mun: [0],
-    n: [0]
+    sun: 0,
+    mun: 0,
+    n: 0,
 }
 
 function esy_summ(arr) {
@@ -457,9 +460,9 @@ function fill_obj_2ndfl() {                              //заполняет о
 }
 
 function clear_obj_2ndfl() {                             //очищает объект данных 2 ндфл
-    obj_sum_2ndfl.sun[0] += esy_summ(obj_2ndfl.sun);
-    obj_sum_2ndfl.mun[0] += esy_summ(obj_2ndfl.mun);
-    obj_sum_2ndfl.n[0] += esy_summ(obj_2ndfl.n);
+    obj_sum_2ndfl.sun += esy_summ(obj_2ndfl.sun);
+    obj_sum_2ndfl.mun += esy_summ(obj_2ndfl.mun);
+    obj_sum_2ndfl.n += esy_summ(obj_2ndfl.n);
     obj_2ndfl.sun = [];
     obj_2ndfl.mun = [];
     obj_2ndfl.n = [];
@@ -600,22 +603,44 @@ function finall_btn() {
     console.log(ob_2_enn);
     clear_obj_2ndfl();
 
+    //================================================================Для отладки
+    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"123456789012\"],\"kpp\":[\"214235985\",\"242346787\"],\"oktmo\":[\"31243356578\",\"43466576546\"],\"name\":[\"ООО первое\",\"ООО второе\"],\"summ\":[243701,24455]}")
+    obj_sum_2ndfl = JSON.parse("{\"sun\":[243701],\"mun\":[3699],\"n\":[209]}");
+    //==============================================================для отладки
     for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
-        obj[`Text38.0.0.${i}`] = [13]
-        obj[`Text39.0.0.${i}`] = [ob_2_enn.ennn[i]];
-        obj[`Text39.1.0.${i}`] = [ob_2_enn.kpp[i]];
-        obj[`Text39.2.0.${i}`] = [ob_2_enn.oktmo[i]];
-        obj[`Text40.0.0.${i}`] = [ob_2_enn.name[i]];
-        obj[`Text41.0.0.${i}`] = [String(ob_2_enn.summ[i]).split('.')[0]];
+
+        obj[`enn_${i}`] = [ob_2_enn.ennn[i]];
+        obj[`kpp_${i}`] = [ob_2_enn.kpp[i]];
+        obj[`oktmo_${i}`] = [ob_2_enn.oktmo[i]];
+        obj[`name_firm_${i}`] = [ob_2_enn.name[i]];
+        obj[`summ_${i}_0`] = [String(ob_2_enn.summ[i]).split('.')[0]];
         try {
-            obj[`Text42.0.0.${i}`] = [String(ob_2_enn.summ[i]).split('.')[1]];
+            obj[`summ_${i}_1`] = [String(ob_2_enn.summ[i]).split('.')[1]];
         } catch{ }
     }
-    obj['Text35.0']=obj_sum_2ndfl.sun;
-    obj['Text35.3']=obj_sum_2ndfl.mun;
-    obj['Text35.4']=obj_sum_2ndfl.n;
-    obj['Text35.6.0']=obj_sum_2ndfl.sun[0]-obj_sum_2ndfl.mun[0]-obj_sum_2ndfl.n[0];
+
+    obj['Text35_0'] = [String(obj_sum_2ndfl.sun).split('.')[0]];
+    try {
+        obj['Text36_0'] = [String(obj_sum_2ndfl.sun).split('.')[1].slice(0, 3)];
+    } catch{ }
+
+    obj['Text35_3'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
+    try {
+        obj['Text36_3'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
+    } catch{ }
+
+
+    obj['Text35_4'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
+    try {
+        obj['Text36_4'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
+    } catch{ }
+
+
+
+
+    obj['Text35_6_0'] = [String(obj_sum_2ndfl.sun - obj_sum_2ndfl.mun - obj_sum_2ndfl.n).split('.')[0]];
 
     ref_1();
     fill(current_buffer);
+    console.log('мяу');
 }
