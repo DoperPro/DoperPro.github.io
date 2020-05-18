@@ -7,6 +7,8 @@ function отладка() {
 function отладка1() {
     first_page_object = JSON.parse('{\"date\":\"2019-12-04\",\"ENN\":\"744773859993\",\"surname\":\"Жуков\",\"name\":\"Пётр\",\"dad\":\"Иваненко\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"12345678901234567890\",\"series_number\":\"8838442312\",\"date_of_issue\":\"2020-04-28\",\"issued_by\":\"дядей мишей\",\"phone\":\"475384758345\"}');
     ref_1();
+    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"123456789012\"],\"kpp\":[\"214235985\",\"242346787\"],\"oktmo\":[\"31243356578\",\"43466576546\"],\"name\":[\"ООО первое\",\"ООО второе\"],\"summ\":[243701,24455]}");
+    obj_sum_2ndfl = JSON.parse("{\"sun\":[243701],\"mun\":[3699],\"n\":[209]}");
     fill(current_buffer);
 }
 
@@ -61,7 +63,7 @@ function ref_1() {
         obj['issued_by1'] = [first_page_object.issued_by1.slice(32, 72)];            //кем выдан
     } catch (err) {
         console.log('ОШЫБКА(((');
-        alert("ОШЫБКА issued_by1")
+        // alert("ОШЫБКА issued_by1")
 
     }
 
@@ -71,7 +73,7 @@ function ref_1() {
         obj['location2'] = [first_page_object.location.slice(17, 57)]; //место рождения
     } catch (err) {
         console.log('ОШЫБКА(((');
-        alert("ОШЫБКА location2")
+        // alert("ОШЫБКА location2")
 
     }
 
