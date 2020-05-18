@@ -57,8 +57,8 @@ function ref_1() {
     obj['name1'] = obj['name'];
     obj['dad1'] = obj['dad'];
     obj['surname_1'] = obj['surname'];
-    obj['name_1'] = obj['name'];
-    obj['dad_1'] = obj['dad'];
+    obj['name_1'] = [obj['name'][0].slice(0,1)];
+    obj['dad_1'] = [obj['dad'].slice(0,1)];
 
     obj['series_number'] = [first_page_object.series_number];                   //серия и номер
     obj['issued_by'] = [first_page_object.issued_by.slice(0, 32)];               //кем выдан
@@ -638,9 +638,12 @@ function finall_btn() {
 
 
     obj['Text35_6_0'] = [String(+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n).split('.')[0]];
+    try {
+        obj['Text36_6'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[2].slice(0, 3)];
+    } catch{ }
 
-    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n)*0.13).split('.')[0]]
-    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n)*0.13).split('.')[0]]
+    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)*0.13).split('.')[0]]
+    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)*0.13).split('.')[0]]
     ref_1();
     fill(current_buffer);
     console.log('мяу');
