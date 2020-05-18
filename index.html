@@ -22,6 +22,11 @@
 						<div class="ENN"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" id="ENN"
 						name="ENN"></div>
 					</li>
+					<li>
+						<span>Налоговый период (код)</span><input type="tel" pattern="[0-9]{2}" maxlength="2" id="taxable_period" name="taxable_period">
+						<span>Отчетный год</span><input type="tel" pattern="[0-9]{4}" maxlength="4" id="reporting_year" name="reporting_year">
+						<span>Представляется в налоговый орган (код)</span><input type="tel" pattern="[0-9]{4}" maxlength="4" id="tax_authority" name="tax_authority">
+					</li>
 					   <div class="surname"><span>Фамилия </span><input type="text" name="surname" id="surname"
 						pattern="^[А-Яа-яЁё]+$">
 						<span>Имя </span><input type="text" name="name" id="name" pattern="^[А-Яа-яЁё]+$">

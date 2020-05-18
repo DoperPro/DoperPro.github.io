@@ -92,6 +92,15 @@ tr:nth-child(even) {
 .ENN{
 	margin: 0 0 0 38px;
 }
+#taxable_period{
+  width: 80px;
+}
+#reporting_year{
+  width: 80px;
+}
+#tax_authority{
+  width: 80px;
+}
 #date{
   width: 178px;
 }
