@@ -153,9 +153,9 @@ function second_page() {
 					</li>
 			</div>
 			<li>
-				<div class="ENN_2"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" name="ENN">
-					<span>КПП</span><input type="tel" pattern="[0-9]{9}" maxlength="9" name="KPP">
-					<span>Код по ОКТМО</span><input type="tel" pattern="[0-9]{11}" maxlength="11" name="OKTMO">
+				<div class="ENN_2"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" name="ENN" id="ENN_rab">
+					<span>КПП</span><input type="tel" pattern="[0-9]{9}" maxlength="9" name="KPP" id="kpp">
+					<span>Код по ОКТМО</span><input type="tel" pattern="[0-9]{11}" maxlength="11" name="OKTMO" id="oktmo">
 			</li>
 			</div>
 			<li>
@@ -555,7 +555,6 @@ function fill_preview_table() {             //вычисляет и заполн
     document.getElementById('cell_2').innerText = summ - minn;                                                //ячейка 2
     document.getElementById('cell_3').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 3
     document.getElementById('cell_4').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 4
-    document.getElementById('cell_5').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 5
 }
 document.documentElement.addEventListener('keyup', fill_preview_table); //тригер поднятия клавиши
 //document.documentElement.addEventListener('click',fill_preview_table);  //тригер клика
