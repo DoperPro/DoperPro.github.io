@@ -149,8 +149,7 @@ function second_page() {
 			<div class="section2.1">
 				<ul>
 					<li>
-						<div class="tax"><span>Налоговая ставка</span><input type="tel" pattern="[0-9]{2}" maxlength="2"
-								name="tax" id="tax"><span>%</span>
+						<div class="tax"><span>Налоговая ставка</span><input type="tel" pattern="[0-9]{2}" maxlength="2" name="tax" id="tax"><span>%</span>
 					</li>
 			</div>
 			<li>
@@ -161,7 +160,7 @@ function second_page() {
 			</div>
 			<li>
 				<div class="source_of_payment"><span>Наименование источника выплаты дохода</span><input type="text"
-						name="source_of_payment" id="source_of_payment" pattern="^[А-Яа-яЁё]+$"></div>
+				name="source_of_payment" id="source_of_payment" pattern="^[А-Яа-яЁё]+$"></div>
 			</li>
 			</ul>
 			</div>
@@ -195,22 +194,18 @@ function second_page() {
 							<option value="12">12</option>
 						</select>
 						<!-- Код дохода -->
-						<input type="tel" name="revenue_code_1" id="revenue_code_1" form="main_form2" pattern="[0-9]{4}"
-							maxlength="4" class="col-2">
+						<input type="tel" name="revenue_code_1" id="revenue_code_1" form="main_form2" pattern="[0-9]{4}" maxlength="4" class="col-2">
 						<!-- Сумма дохода -->
-						<input type="number" name="amount_of_income_1" id="amount_of_income_1" form="main_form2"
-							class="col-3">
-						<input type="tel" name="deduction_code_1" id="deduction_code_1" form="main_form2"
-							pattern="[0-9]{3,4}" maxlength="4" class="col-2">
-						<input type="number" name="the_amount_of_the_deduction_1" id="the_amount_of_the_deduction_1"
-							form="main_form2" class="col-3">
+						<input type="number" name="amount_of_income_1" id="amount_of_income_1" form="main_form2" class="col-3">
+						<input type="tel" name="deduction_code_1" id="deduction_code_1" form="main_form2" pattern="[0-9]{3,4}" maxlength="4" class="col-2">
+						<input type="number" name="the_amount_of_the_deduction_1" id="the_amount_of_the_deduction_1" form="main_form2"class="col-3">
 					</div>
 				</div>
 				<div class="row justify-content-center">
 					<div class="button1">
-						<input type="button" id="add_button" value="Добавить строчку"></div>
+					<input type="button" id="add_button" value="Добавить строчку"></div>
 					<div class="button2">
-						<input type="button" disabled="disabled" id="dell_button" value="Удалить строчку"></div>
+					<input type="button" disabled="disabled" id="dell_button" value="Удалить строчку"></div>
 				</div>
 			</div>
 
@@ -222,10 +217,8 @@ function second_page() {
 						<div class="col-4" name="the_amount_of_the_deduction_one">Сумма вычета</div>
 					</div>
 					<div class="row justify-content-center">
-						<input type="tel" name="deduction_code_two_1" id="deduction_code_two_1" form="main_form2"
-							pattern="[0-9]{3,4}" maxlength="4" class="col-3">
-						<input type="number" name="the_amount_of_the_deduction_two_1"
-							id="the_amount_of_the_deduction_two_1" form="main_form2" class="col-4">
+						<input type="tel" name="deduction_code_two_1" id="deduction_code_two_1" form="main_form2" pattern="[0-9]{3,4}" maxlength="4" class="col-3">
+						<input type="number" name="the_amount_of_the_deduction_two_1" id="the_amount_of_the_deduction_two_1" form="main_form2" class="col-4">
 					</div>
 				</div>
 				<div class="row justify-content-center">
@@ -256,18 +249,6 @@ function second_page() {
 					<td>Сумма налога удержанная</td>
 					<td id="cell_4"></td>
 				</tr>
-				<tr>
-					<td>Сумма налога перечисленная</td>
-					<td id="cell_5"></td>
-				</tr>
-				<tr>
-					<td>Сумма налога, излишне удержанная налоговым агентом</td>
-					<td id="cell_6"></td>
-				</tr>
-				<tr>
-					<td>Сумма налога, не удержанная налоговым агентом</td>
-					<td id="cell_7"></td>
-				</tr>
 			</table>
 			<div class="search">
 				<a href="index.html" class="button-back"> Назад</a>
@@ -281,66 +262,68 @@ function second_page() {
 function first_page() {
     body_content.innerHTML = `
     <form action="income.html" method="get" id="main_form">
-    <div class="taxpayer">
-        <h1>Данные о налогоплательщике<h1>
-    </div>
-    <div class="section1">
-        <ul>
-            <li>
-                <div class="ENN"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" id="ENN"
-                        name="ENN"></div>
-            </li>
-            <div class="surname"><span>Фамилия </span><input type="text" name="surname" id="surname"
-                    pattern="^[А-Яа-яЁё]+$">
-                <span>Имя </span><input type="text" name="name" id="name" pattern="^[А-Яа-яЁё]+$">
-                <span> Отчество* </span><input type="text" name="dad" id="dad" pattern="^[А-Яа-яЁё]+$"></div>
-            <li>
-                <div class="data_location"><span>Дата рождения </span><input type="date" name="date" id="date">
-                    <span>Место рождения </span><input type="text" name="location" id="location"></div>
-            </li>
-        </ul>
-    </div>
-    <div class="section2">
-        <ul>
-            <li>
-                <div class="id_doc"><span>Код вида документа </span><select name="id_doc" id="id_doc"
-                        form="main_form">
-                        <option value="18">18 — Свидетельство о предоставлении временного убежища на территории
-                            Российской Федерации</option>
-                        <option value="21">21 — Паспорт гражданина Российской Федерации</option>
-                        <option value="23">23 — Свидетельство о рождении, выданное уполномоченным органом
-                            иностранного государства</option>
-                    </select></div>
-            </li>
-            <li>
-                <div class="series_number"><span>Серия и номер </span><input type="tel" pattern="[0-9]{10}"
-                        maxlength="10" name="series_number" id="series_number">
-                    <span>Дата выдачи </span><input type="date" name="date_of_issue" id="date_of_issue"></div>
-                <div class="issued_by"><span>Кем выдан </span><input type="text" name="issued_by"
-                        id="issued_by"></div>
-            </li>
-        </ul>
-    </div>
-    <div class="section3">
-        <ul>
-            <li>
-                <div class="taxpayer1"><span>Код статуса налогоплательщика </span><select name="taxpayer"
-                        id="taxpayer" form="main_form">
-                        <option value="1">1 — налоговый резидент Российской Федерации</option>
-                        <option value="2">2 — лицо, не являющееся налоговым резидентом Российской Федерации
-                        </option>
-                    </select></div>
-            </li>
-            <li>
-                <div class="phone"><span>Номер контакного телефона </span><input type="tel" pattern="[0-9]{12}"
-                        maxlength="12" name="phone" id="phone"></div>
-            </li>
-        </ul>
-    </div>
-    <div class="search">
-        <button type="submit">Продолжить</button>
-    </div>
-</form>
+			<div class="taxpayer">
+				<h1>Данные о налогоплательщике<h1>
+			</div>
+			<div class="section1">
+				<ul>
+					<li>
+						<div class="ENN"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" id="ENN"
+						name="ENN"></div>
+					</li>
+					<li>
+						<div class="tax_data"><span>Налоговый период (код)</span><input type="tel" pattern="[0-9]{2}" maxlength="2" id="taxable_period" name="taxable_period">
+						<span>Отчетный год</span><input type="tel" pattern="[0-9]{4}" maxlength="4" id="reporting_year" name="reporting_year">
+						<span>Представляется в налоговый орган (код)</span><input type="tel" pattern="[0-9]{4}" maxlength="4" id="tax_authority" name="tax_authority"></div>
+					</li>
+					   <div class="surname"><span>Фамилия </span><input type="text" name="surname" id="surname"
+						pattern="^[А-Яа-яЁё]+$">
+						<span>Имя </span><input type="text" name="name" id="name" pattern="^[А-Яа-яЁё]+$">
+						<span> Отчество* </span><input type="text" name="dad" id="dad" pattern="^[А-Яа-яЁё]+$"></div>
+					<li>
+						<div class="data_location"><span>Дата рождения </span><input type="date" name="date" id="date">
+						<span>Место рождения </span><input type="text" name="location" id="location"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="section2">
+				<ul>
+					<li>
+						<div class="id_doc"><span>Код вида документа</span><select name="id_doc" id="id_doc"
+								form="main_form">
+								<option value="18">18 — Свидетельство о предоставлении временного убежища на территории Российской Федерации</option>
+								<option value="21">21 — Паспорт гражданина Российской Федерации</option>
+								<option value="23">23 — Свидетельство о рождении, выданное уполномоченным органом
+								иностранного государства</option>
+							</select></div>
+					</li>
+					<li>
+						<div class="series_number"><span>Серия и номер </span><input type="tel" pattern="[0-9]{10}"
+						maxlength="10" name="series_number" id="series_number">
+						<span>Дата выдачи </span><input type="date" name="date_of_issue" id="date_of_issue"></div>
+						<div class="issued_by"><span>Кем выдан </span><input type="text" name="issued_by" id="issued_by"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="section3">
+				<ul>
+					<li>
+						<div class="taxpayer1"><span>Код статуса налогоплательщика </span><select name="taxpayer"
+								id="taxpayer" form="main_form">
+								<option value="1">1 — налоговый резидент Российской Федерации</option>
+								<option value="2">2 — лицо, не являющееся налоговым резидентом Российской Федерации
+								</option>
+							</select></div>
+					</li>
+					<li>
+						<div class="phone"><span>Номер контакного телефона +7</span><input type="tel" pattern="[0-9]{10}" maxlength="10" name="phone" id="phone"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="search">
+				<button type="submit">Продолжить</button>
+			</div>
+		</form>
 `;
 }
 
@@ -572,7 +555,6 @@ function fill_preview_table() {             //вычисляет и заполн
     document.getElementById('cell_2').innerText = summ - minn;                                                //ячейка 2
     document.getElementById('cell_3').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 3
     document.getElementById('cell_4').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 4
-    document.getElementById('cell_5').innerText = (summ - minn) * (+document.getElementById('tax').value / 100);  //ячейка 5
 }
 document.documentElement.addEventListener('keyup', fill_preview_table); //тригер поднятия клавиши
 //document.documentElement.addEventListener('click',fill_preview_table);  //тригер клика
