@@ -641,22 +641,24 @@ function finall_btn() {
         obj['Text36_0'] = [String(obj_sum_2ndfl.sun).split('.')[1].slice(0, 3)];
     } catch{ }
 
-    obj['Text35_3'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
+    obj['Text35_3'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
     try {
-        obj['Text36_3'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
+        obj['Text36_3'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
     } catch{ }
 
 
-    obj['Text35_4'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
+    obj['Text35_4'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
     try {
-        obj['Text36_4'] = [String(obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
+        obj['Text36_4'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
     } catch{ }
 
 
 
 
-    obj['Text35_6_0'] = [String(obj_sum_2ndfl.sun - obj_sum_2ndfl.mun - obj_sum_2ndfl.n).split('.')[0]];
+    obj['Text35_6_0'] = [String(+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n).split('.')[0]];
 
+    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n)*0.13).split('.')[0]]
+    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n)*0.13).split('.')[0]]
     ref_1();
     fill(current_buffer);
     console.log('мяу');
