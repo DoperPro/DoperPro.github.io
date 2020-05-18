@@ -437,6 +437,7 @@ let ob_2_enn = {
     oktmo: [],
     name: [],
     summ: [],
+    procent: [],
 }
 function clear_ob_2_enn() {
     ob_2_enn.ennn = [];
@@ -446,6 +447,7 @@ function clear_ob_2_enn() {
     ob_2_enn.summ = [];
 }
 function fill_ob_2_enn() { //заполняет ob_2_enn с инн и названиями перед очисткой объекта
+    ob_2_enn.procent.push(document.getElementById('tax').value);
     ob_2_enn.ennn.push(document.getElementById('ENN_rab').value);
     ob_2_enn.kpp.push(document.getElementById('kpp').value);
     ob_2_enn.oktmo.push(document.getElementById('oktmo').value);
@@ -609,15 +611,19 @@ function finall_btn() {
     clear_obj_2ndfl();
 
     //================================================================Для отладки
-    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"123456789012\"],\"kpp\":[\"214235985\",\"242346787\"],\"oktmo\":[\"31243356578\",\"43466576546\"],\"name\":[\"ООО первое\",\"ООО второе\"],\"summ\":[243701,24455]}")
-    obj_sum_2ndfl = JSON.parse("{\"sun\":[243701],\"mun\":[3699],\"n\":[209]}");
+    first_page_object = JSON.parse("{\"taxable_period\":\"23\",\"tax_authority\":\"2445\",\"reporting_year\":\"2010\",\"date\":\"1983-08-12\",\"ENN\":\"744773859993\",\"surname\":\"ЖУКОВ\",\"name\":\"ПЁТР\",\"dad\":\"ИВАНЕНКО\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"ОБЛ. КАЛЫМСКАЯ Г. НИЖНИЙ ХОЛМ\",\"series_number\":\"8838442312\",\"date_of_issue\":\"1993-05-13\",\"issued_by\":\"ДЯДЕЙ МИШЕЙ\",\"phone\":\"8854345237\"}")
+    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"222773859993\"],\"kpp\":[\"539485865\",\"222485865\"],\"oktmo\":[\"34532323423\",\"22232323423\"],\"name\":[\"ООО Хрень собачья\",\"\"],\"summ\":[48000,13427],\"procent\":[\"13\",\"\"]}")
+    obj_sum_2ndfl = JSON.parse("{\"sun\":61427,\"mun\":2888,\"n\":465}");
     //==============================================================для отладки
     for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
 
         obj[`enn_${i}`] = [ob_2_enn.ennn[i]];
         obj[`kpp_${i}`] = [ob_2_enn.kpp[i]];
         obj[`oktmo_${i}`] = [ob_2_enn.oktmo[i]];
-        obj[`name_firm_${i}`] = [ob_2_enn.name[i]];
+        obj[`name_firm_${i}_0`] = [ob_2_enn.name[i]].slice(0,41);
+        try{
+            obj[`name_firm_${i}_1`] = [ob_2_enn.name[i]].slice(41,82);
+        }catch{}
         obj[`summ_${i}_0`] = [String(ob_2_enn.summ[i]).split('.')[0]];
         try {
             obj[`summ_${i}_1`] = [String(ob_2_enn.summ[i]).split('.')[1]];
