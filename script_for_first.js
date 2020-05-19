@@ -96,6 +96,8 @@ function ref_1() {
 
     obj['year'] = [Date().split(' ')[3]];
     obj['ENN'] = [first_page_object.ENN];
+    obj['ENN1'] = [first_page_object.ENN];
+    obj['ENN2'] = [first_page_object.ENN];
     obj['id_doc'] = [first_page_object.id_doc];
     obj['taxpayer'] = [first_page_object.taxpayer];
 
@@ -602,18 +604,18 @@ function onClick() {
 };
 function finall_btn() {
 
-    fill_obj_2ndfl();               //
-    console.log('obj_2ndfl:==============');
-    console.log(obj_2ndfl);
-    fill_ob_2_enn();                //название фирм
-    console.log('ob_2_enn:==============');
-    console.log(ob_2_enn);
-    clear_obj_2ndfl();
+    // fill_obj_2ndfl();               //
+    // console.log('obj_2ndfl:==============');
+    // console.log(obj_2ndfl);
+    // fill_ob_2_enn();                //название фирм
+    // console.log('ob_2_enn:==============');
+    // console.log(ob_2_enn);
+    // clear_obj_2ndfl();
 
     //================================================================Для отладки
-    /*first_page_object = JSON.parse("{\"taxable_period\":\"23\",\"tax_authority\":\"2445\",\"reporting_year\":\"2010\",\"date\":\"1983-08-12\",\"ENN\":\"744773859993\",\"surname\":\"ЖУКОВ\",\"name\":\"ПЁТР\",\"dad\":\"ИВАНЕНКО\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"ОБЛ. КАЛЫМСКАЯ Г. НИЖНИЙ ХОЛМ\",\"series_number\":\"8838442312\",\"date_of_issue\":\"1993-05-13\",\"issued_by\":\"ДЯДЕЙ МИШЕЙ\",\"phone\":\"8854345237\"}")
-    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"222773859993\"],\"kpp\":[\"539485865\",\"222485865\"],\"oktmo\":[\"34532323423\",\"22232323423\"],\"name\":[\"ООО Хрень собачья\",\"\"],\"summ\":[48000,13427],\"procent\":[\"13\",\"\"]}")
-    obj_sum_2ndfl = JSON.parse("{\"sun\":61427,\"mun\":2888,\"n\":465}");*/
+    first_page_object = JSON.parse("{\"taxable_period\":\"23\",\"tax_authority\":\"2445\",\"reporting_year\":\"2010\",\"date\":\"1983-08-12\",\"ENN\":\"744773859993\",\"surname\":\"ЖУКОВ\",\"name\":\"ПЁТР\",\"dad\":\"ИВАНЕНКО\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"ОБЛ. КАЛЫМСКАЯ Г. НИЖНИЙ ХОЛМ\",\"series_number\":\"8838442312\",\"date_of_issue\":\"1993-05-13\",\"issued_by\":\"ДЯДЕЙ МИШЕЙ\",\"phone\":\"8854345237\"}")
+    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"222773859993\"],\"kpp\":[\"539485865\",\"222485865\"],\"oktmo\":[\"34532323423\",\"22232323423\"],\"name\":[\"ООО Хрень собачья\",\"ООО не креативный\"],\"summ\":[48000,13427],\"procent\":[\"13\",\"\"]}")
+    obj_sum_2ndfl = JSON.parse("{\"sun\":61427.46,\"mun\":2888.65,\"n\":465.45}");
     //==============================================================для отладки
     for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
 
@@ -624,40 +626,45 @@ function finall_btn() {
         try{
             obj[`name_firm_${i}_1`] = [ob_2_enn.name[i]].slice(41,82);
         }catch{}
-        obj[`summ_${i}_0`] = [String(ob_2_enn.summ[i]).split('.')[0]];
+        obj[`summ_${i}_0`] = [String((ob_2_enn.summ[i]).toFixed(2)).split('.')[0]];
         try {
-            obj[`summ_${i}_1`] = [String(ob_2_enn.summ[i]).split('.')[1]];
+            obj[`summ_${i}_1`] = [String((ob_2_enn.summ[i]).toFixed(2)).split('.')[1]];
         } catch{ }
     }
 
-    obj['Text35_0'] = [String(obj_sum_2ndfl.sun).split('.')[0]];
+    obj['Text35_0'] = [String((obj_sum_2ndfl.sun).toFixed(2)).split('.')[0]];
     try {
-        obj['Text36_0'] = [String(obj_sum_2ndfl.sun).split('.')[1].slice(0, 3)];
+        obj['Text36_0'] = [String((obj_sum_2ndfl.sun).toFixed(2)).split('.')[1]];
     } catch{ }
 
-    obj['Text35_3'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
+    obj['Text35_3'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).toFixed(2)).split('.')[0]];
     try {
-        obj['Text36_3'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
+        obj['Text36_3'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).toFixed(2)).split('.')[1]];
     } catch{ }
 
-
-    obj['Text35_4'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[0]];
+  
+    obj['Text35_4'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).toFixed(2)).split('.')[0]];
     try {
-        obj['Text36_4'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[1].slice(0, 3)];
+        obj['Text36_4'] = [String((+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).toFixed(2)).split('.')[1]];
     } catch{ }
 
+    obj['procent_0'] = [ob_2_enn.procent[0]];
+    obj['procent_1'] = [ob_2_enn.procent[0]];
+    obj['procent_2'] = [ob_2_enn.procent[0]];
+    obj['procent_3'] = [ob_2_enn.procent[0]];
 
 
 
     obj['Text35_6_0'] = [String(+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n).split('.')[0]];
     try {
-        obj['Text36_6'] = [String(+obj_sum_2ndfl.mun + +obj_sum_2ndfl.n).split('.')[2].slice(0, 3)];
+        obj['Text36_6'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n).toFixed(2)).split('.')[1]];
+        
     } catch{ }
 
-    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)*0.13).split('.')[0]]
-    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)*0.13).split('.')[0]]
-    obj['Text35_6_5'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)*0.13).split('.')[0]]
-    obj['Text35_6_6'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)*0.13).split('.')[0]]
+    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
+    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
+    obj['Text35_6_5'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
+    obj['Text35_6_6'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
     ref_1();
     fill(current_buffer);
     console.log('мяу');
