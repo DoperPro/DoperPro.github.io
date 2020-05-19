@@ -65,6 +65,9 @@ function ref_1() {
     obj['surname_1'] = obj['surname'];
     obj['name_1'] = [obj['name'][0].slice(0,1)];
     obj['dad_1'] = [obj['dad'].slice(0,1)];
+    obj['surname_2'] = obj['surname'];
+    obj['name_2'] = [obj['name'][0].slice(0,1)];
+    obj['dad_2'] = [obj['dad'].slice(0,1)];
 
     obj['series_number'] = [first_page_object.series_number];                   //серия и номер
     obj['issued_by'] = [first_page_object.issued_by.slice(0, 32)];               //кем выдан
@@ -618,7 +621,7 @@ function finall_btn() {
     // obj_sum_2ndfl = JSON.parse("{\"sun\":61427.46,\"mun\":2888.65,\"n\":465.45}");
     //==============================================================для отладки
     for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
-        obj[`procent_${i+1}`] = [ob_2_enn.procent[0]];
+        obj[`procent_${i+1}`] = [ob_2_enn.procent[i]];
         obj[`enn_${i}`] = [ob_2_enn.ennn[i]];
         obj[`kpp_${i}`] = [ob_2_enn.kpp[i]];
         obj[`oktmo_${i}`] = [ob_2_enn.oktmo[i]];
@@ -630,6 +633,7 @@ function finall_btn() {
         try {
             obj[`summ_${i}_1`] = [String((ob_2_enn.summ[i]).toFixed(2)).split('.')[1]];
         } catch{ }
+        obj[`nalog_${i}`] = [String((ob_2_enn.summ[i]* +('0.' + ob_2_enn.procent[i]))).split('.')[0]];
     }
 
     obj['Text35_0'] = [String((obj_sum_2ndfl.sun).toFixed(2)).split('.')[0]];
@@ -660,10 +664,10 @@ function finall_btn() {
         
     } catch{ }
 
-    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
-    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
-    obj['Text35_6_5'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
-    obj['Text35_6_6'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +ob_2_enn.procent[0]).split('.')[0]]
+    obj['Text35_6_1'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +('0.' + ob_2_enn.procent[0])).split('.')[0]]
+    obj['Text35_6_2'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +('0.' + ob_2_enn.procent[0])).split('.')[0]]
+    obj['Text35_6_5'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +('0.' + ob_2_enn.procent[0])).split('.')[0]]
+    obj['Text35_6_6'] = [String((+obj_sum_2ndfl.sun - +obj_sum_2ndfl.mun - +obj_sum_2ndfl.n)* +('0.' + ob_2_enn.procent[0])).split('.')[0]]
     ref_1();
     fill(current_buffer);
     console.log('мяу');
