@@ -92,6 +92,15 @@ tr:nth-child(even) {
 .ENN{
 	margin: 0 0 0 38px;
 }
+#taxable_period{
+  width: 80px;
+}
+#reporting_year{
+  width: 80px;
+}
+#tax_authority{
+  width: 80px;
+}
 #date{
   width: 178px;
 }
@@ -211,9 +220,35 @@ tr:nth-child(even) {
   padding: 0;
   }
   .ENN{
-  width: 95%; 
+  width: 50%; 
   display: flex;
   flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0 auto 30px;
+  }
+  .tax_data{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 30px;   
+  }
+  #taxable_period{
+  width: 20%;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0 auto 30px;
+  }
+  #reporting_year{
+  width: 20%;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  margin: 0 auto 30px;
+  }
+  #tax_authority{
+  width: 20%;
   text-align: center;
   align-self: center;
   align-content: center;
@@ -223,7 +258,7 @@ tr:nth-child(even) {
   margin: 0 0 0 18px;
   }
   .surname{
-  width: 95%;
+  width: 50%;
   margin: 0 auto 30px;
   display: flex;
   flex-direction: column;
@@ -240,8 +275,13 @@ tr:nth-child(even) {
   align-content: center;
   margin: 0 auto;
   }
+  #date{
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  }
   .series_number{
-  width: 95%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -251,6 +291,11 @@ tr:nth-child(even) {
   }
   #location{
   width: 100%;
+  }
+  #date_of_issue{
+  text-align: center;
+  align-self: center;
+  align-content: center;
   }
   .issued_by{
   width: 95%;
@@ -284,7 +329,7 @@ tr:nth-child(even) {
   margin-bottom: 30px;
   }
   .phone{
-  width: 95%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -293,7 +338,7 @@ tr:nth-child(even) {
   margin: 0 auto;
   }
   .ENN_2{
-  width: 95%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   text-align: center;

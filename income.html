@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Income</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="bootstrap-grid.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	</head>
-	<body>
-		
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Income</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="bootstrap-grid.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<main>
 		<form action="#" method="get" id="main_form2">
 			<p id="form">Бланк № <a id="clicks">1</a></p>
-			<div class="income"><h1>Доходы полученные в РФ<h1></div>
+			<div class="income">
+				<h1>Доходы полученные в РФ<h1>
+			</div>
 			<div class="section2.1">
 				<ul>
-					<li><div class="tax"><span>Налоговая ставка</span><input type="tel" pattern="[0-9]{2}" maxlength="2" name="tax" id="tax"><span>%</span></li></div>
-					<li><div class="ENN_2"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" name="ENN">
-					<span>КПП</span><input type="tel" pattern="[0-9]{9}" maxlength="9" name="KPP">
-					<span>Код по ОКТМО</span><input type="tel" pattern="[0-9]{11}" maxlength="11" name="OKTMO"></li></div>
-					<li><div class="source_of_payment"><span>Наименование источника выплаты дохода</span><input type="text" name="source_of_payment" id="source_of_payment" pattern="^[А-Яа-яЁё]+$"></div></li>
-				</ul>
+					<li>
+						<div class="tax"><span>Налоговая ставка</span><input type="tel" pattern="[0-9]{2}" maxlength="2" name="tax" id="tax"><span>%</span>
+					</li>
 			</div>
-			<div class="payment"><h1>Расчет налоговой базы и суммы налога по доходам, облагаемым по ставке<h1></div>
-			<div class="rate_of_return"><h2>1. Доходы облагаемые по ставке</h2>
+			<li>
+				<div class="ENN_2"><span>ИНН </span><input type="tel" pattern="[0-9]{12}" maxlength="12" name="ENN">
+					<span>КПП</span><input type="tel" pattern="[0-9]{9}" maxlength="9" name="KPP">
+					<span>Код по ОКТМО</span><input type="tel" pattern="[0-9]{11}" maxlength="11" name="OKTMO">
+			</li>
+			</div>
+			<li>
+				<div class="source_of_payment"><span>Наименование источника выплаты дохода</span><input type="text"
+				name="source_of_payment" id="source_of_payment" pattern="^[А-Яа-яЁё]+$"></div>
+			</li>
+			</ul>
+			</div>
+			<div class="payment">
+				<h1>Расчет налоговой базы и суммы налога по доходам, облагаемым по ставке<h1>
+			</div>
+			<div class="rate_of_return">
+				<h2>1. Доходы облагаемые по ставке</h2>
 				<div class="tabl" id="tabl_1">
 					<div class="row justify-content-center">
 						<div class="col-1" name="month" form="main_form2">Месяц</div>
@@ -53,73 +69,88 @@
 						<!-- Сумма дохода -->
 						<input type="number" name="amount_of_income_1" id="amount_of_income_1" form="main_form2" class="col-3">
 						<input type="tel" name="deduction_code_1" id="deduction_code_1" form="main_form2" pattern="[0-9]{3,4}" maxlength="4" class="col-2">
-						<input type="number" name="the_amount_of_the_deduction_1" id="the_amount_of_the_deduction_1" form="main_form2" class="col-3">
+						<input type="number" name="the_amount_of_the_deduction_1" id="the_amount_of_the_deduction_1" form="main_form2"class="col-3">
 					</div>
 				</div>
 				<div class="row justify-content-center">
 					<div class="button1">
-						<input type="button" id="add_button" value="Добавить строчку"></div>
+					<input type="button" id="add_button" value="Добавить строчку"></div>
 					<div class="button2">
-						<input type="button" disabled="disabled" id="dell_button" value="Удалить строчку"></div>
+					<input type="button" disabled="disabled" id="dell_button" value="Удалить строчку"></div>
 				</div>
 			</div>
-					
-			<div class="tax_deductions"><h2>2. Стандартные, социальные и имущественные налоговые вычеты</h2>
+
+			<div class="tax_deductions">
+				<h2>2. Стандартные, социальные и имущественные налоговые вычеты</h2>
 				<div class="tabl_1" id="tabl_1.1">
 					<div class="row justify-content-center">
-					<div class="col-3" name="deduction_code_one">Код вычета</div>
-					<div class="col-4" name="the_amount_of_the_deduction_one">Сумма вычета</div>
-				   </div>
-				   <div class="row justify-content-center">
-				   <input type="tel" name="deduction_code_two_1" id="deduction_code_two_1" form="main_form2" pattern="[0-9]{3,4}" maxlength="4" class="col-3">
-					<input type="number" name="the_amount_of_the_deduction_two_1" id="the_amount_of_the_deduction_two_1" form="main_form2" class="col-4">
-				   </div>
+						<div class="col-3" name="deduction_code_one">Код вычета</div>
+						<div class="col-4" name="the_amount_of_the_deduction_one">Сумма вычета</div>
+					</div>
+					<div class="row justify-content-center">
+						<input type="tel" name="deduction_code_two_1" id="deduction_code_two_1" form="main_form2" pattern="[0-9]{3,4}" maxlength="4" class="col-3">
+						<input type="number" name="the_amount_of_the_deduction_two_1" id="the_amount_of_the_deduction_two_1" form="main_form2" class="col-4">
+					</div>
 				</div>
 				<div class="row justify-content-center">
 					<div class="button1">
 						<input type="button" id="add_button1" value="Добавить строчку"></div>
-						<div class="button2">
+					<div class="button2">
 						<input type="button" disabled="disabled" id="dell_button1" value="Удалить строчку"></div>
 				</div>
 			</div>
 
-					<div class="total_revenue"><h2>3. Общие суммы дохода и налога по итогам налогового периода по ставке</h2></div>
-					<table>
-						<tr>
-							<td>Общая сумма дохода</td>
-							<td id="cell_1"></td>
-						</tr>
-						<tr>
-							<td>Налоговая база</td>
-							<td id="cell_2"></td>
-						</tr>
-						<tr>
-							<td>Сумма налога исчисленная</td>
-							<td id="cell_3"></td>
-						</tr>
-						<tr>
-							<td>Сумма налога удержанная</td>
-							<td id="cell_4"></td>
-						</tr>
-						<tr>
-							<td>Сумма налога перечисленная</td>
-							<td id="cell_5"></td>
-						</tr>
-						<tr>
-							<td>Сумма налога, излишне удержанная налоговым агентом</td>
-							<td id="cell_6"></td>
-						</tr>
-						<tr>
-							<td>Сумма налога, не удержанная налоговым агентом</td>
-							<td id="cell_7"></td>
-						</tr>
-					</table>
-					<div class="search">
-						<a href="index.html" onclick="history.back(-1); return false;" class="button-back"> Назад</a>
-						<button type="button" id="button1" onClick="onClick()">Добавить</button>
-						<button type="button" id="button2">Отправить</button>
-					</div>
-				</form>
-				<script src="script.js"></script>
-			</body>
-		</html>
+			<div class="total_revenue">
+				<h2>3. Общие суммы дохода и налога по итогам налогового периода по ставке</h2>
+			</div>
+			<table>
+				<tr>
+					<td>Общая сумма дохода</td>
+					<td id="cell_1"></td>
+				</tr>
+				<tr>
+					<td>Налоговая база</td>
+					<td id="cell_2"></td>
+				</tr>
+				<tr>
+					<td>Сумма налога исчисленная</td>
+					<td id="cell_3"></td>
+				</tr>
+				<tr>
+					<td>Сумма налога удержанная</td>
+					<td id="cell_4"></td>
+				</tr>
+			</table>
+			<div class="search">
+				<a href="index.html" class="button-back"> Назад</a>
+				<button type="button" id="button1" onClick="onClick()">Добавить</button>
+				<button type="button" id="button2">Отправить</button>
+			</div>
+		</form>
+	</main>
+
+
+
+	<!-- In a real-life scenario, you want to chose EITHER minipdf (smaller) -->
+	<script src="../minipdf.js"></script>
+
+	<!-- .. OR pdf.js (huge, but better compatibility).
+pdf.worker.js is slightly modified to export the actual classes we care about -->
+	<script src="../customlibs/pdf.worker.js"></script>
+	<script src="../minipdf_js.js"></script>
+
+
+	<!-- pako and pdfform.js are required either way -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.3/pako.min.js"
+		integrity="sha256-X7u/eQo6oIgWqc5jOmTjQn3loM8Lse0ock76Gkkn/Ro=" crossorigin="anonymous"></script>
+	<script src="../pdfform.js"></script>
+
+	<!-- FileSaver.js is just needed for the demo, although you'll probably use it in some form as well -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.0.0/FileSaver.min.js"></script>
+
+
+
+	<script src="script.js"></script>
+</body>
+
+</html>
