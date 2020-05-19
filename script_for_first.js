@@ -618,7 +618,7 @@ function finall_btn() {
     obj_sum_2ndfl = JSON.parse("{\"sun\":61427.46,\"mun\":2888.65,\"n\":465.45}");
     //==============================================================для отладки
     for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
-
+        obj[`procent_${i+1}`] = [ob_2_enn.procent[0]];
         obj[`enn_${i}`] = [ob_2_enn.ennn[i]];
         obj[`kpp_${i}`] = [ob_2_enn.kpp[i]];
         obj[`oktmo_${i}`] = [ob_2_enn.oktmo[i]];
@@ -649,9 +649,8 @@ function finall_btn() {
     } catch{ }
 
     obj['procent_0'] = [ob_2_enn.procent[0]];
-    obj['procent_1'] = [ob_2_enn.procent[0]];
-    obj['procent_2'] = [ob_2_enn.procent[0]];
-    obj['procent_3'] = [ob_2_enn.procent[0]];
+
+
 
 
 
