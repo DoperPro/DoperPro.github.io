@@ -604,18 +604,18 @@ function onClick() {
 };
 function finall_btn() {
 
-    // fill_obj_2ndfl();               //
-    // console.log('obj_2ndfl:==============');
-    // console.log(obj_2ndfl);
-    // fill_ob_2_enn();                //название фирм
-    // console.log('ob_2_enn:==============');
-    // console.log(ob_2_enn);
-    // clear_obj_2ndfl();
+    fill_obj_2ndfl();               //
+    console.log('obj_2ndfl:==============');
+    console.log(obj_2ndfl);
+    fill_ob_2_enn();                //название фирм
+    console.log('ob_2_enn:==============');
+    console.log(ob_2_enn);
+    clear_obj_2ndfl();
 
     //================================================================Для отладки
-    first_page_object = JSON.parse("{\"taxable_period\":\"23\",\"tax_authority\":\"2445\",\"reporting_year\":\"2010\",\"date\":\"1983-08-12\",\"ENN\":\"744773859993\",\"surname\":\"ЖУКОВ\",\"name\":\"ПЁТР\",\"dad\":\"ИВАНЕНКО\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"ОБЛ. КАЛЫМСКАЯ Г. НИЖНИЙ ХОЛМ\",\"series_number\":\"8838442312\",\"date_of_issue\":\"1993-05-13\",\"issued_by\":\"ДЯДЕЙ МИШЕЙ\",\"phone\":\"8854345237\"}")
-    ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"222773859993\"],\"kpp\":[\"539485865\",\"222485865\"],\"oktmo\":[\"34532323423\",\"22232323423\"],\"name\":[\"ООО Хрень собачья\",\"ООО не креативный\"],\"summ\":[48000,13427],\"procent\":[\"13\",\"\"]}")
-    obj_sum_2ndfl = JSON.parse("{\"sun\":61427.46,\"mun\":2888.65,\"n\":465.45}");
+    // first_page_object = JSON.parse("{\"taxable_period\":\"23\",\"tax_authority\":\"2445\",\"reporting_year\":\"2010\",\"date\":\"1983-08-12\",\"ENN\":\"744773859993\",\"surname\":\"ЖУКОВ\",\"name\":\"ПЁТР\",\"dad\":\"ИВАНЕНКО\",\"id_doc\":\"18\",\"taxpayer\":\"1\",\"location\":\"ОБЛ. КАЛЫМСКАЯ Г. НИЖНИЙ ХОЛМ\",\"series_number\":\"8838442312\",\"date_of_issue\":\"1993-05-13\",\"issued_by\":\"ДЯДЕЙ МИШЕЙ\",\"phone\":\"8854345237\"}")
+    // ob_2_enn = JSON.parse("{\"ennn\":[\"744773859993\",\"222773859993\"],\"kpp\":[\"539485865\",\"222485865\"],\"oktmo\":[\"34532323423\",\"22232323423\"],\"name\":[\"ООО Хрень собачья\",\"ООО не креативный\"],\"summ\":[48000,13427],\"procent\":[\"13\",\"\"]}")
+    // obj_sum_2ndfl = JSON.parse("{\"sun\":61427.46,\"mun\":2888.65,\"n\":465.45}");
     //==============================================================для отладки
     for (let i = 0; (i < ob_2_enn.ennn.length) && (i < 3); i++) {
         obj[`procent_${i+1}`] = [ob_2_enn.procent[0]];
