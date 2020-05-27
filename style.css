@@ -358,6 +358,10 @@ tr:nth-child(even) {
   #source_of_payment{
   width: 100%;
   }
+  #month{
+  padding: 0;
+  margin-left: 0;
+  }
   .search{
   width: 100%;
   display: blocks;
